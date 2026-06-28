@@ -66,9 +66,9 @@
 .cs-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 4; }
 .cs-video.playing img, .cs-video.playing .vplay, .cs-video.playing .cap { display: none; }
 
-/* ---------- FULL-BLEED STAGE VIDEO (edge-to-edge motion showcase) ---------- */
-.cs-stage { background: var(--bg); padding: 0; }
-.cs-stage .cs-stage-video { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; max-height: 90vh; margin: 0 auto; border-radius: 0; border-left: 0; border-right: 0; border-top: 0; }
+/* ---------- FEATURED STAGE VIDEO (matches the other project videos) ---------- */
+.cs-stage { background: var(--bg); padding: 40px 0; }
+.cs-stage .cs-stage-video { width: 100%; aspect-ratio: 16 / 9; margin: 0 auto; }
 .cs-stage .cs-stage-video .vplay { width: 96px; height: 96px; }
 .cs-stage .cs-stage-video .cap { left: auto; right: 18px; bottom: 18px; font-size: 11px; padding: 7px 12px; }
 @media (max-width: 620px){
