@@ -40,6 +40,19 @@ uploads/              Project imagery
 
 All work items live in `assets/projects.js` as a single array. Each entry drives both its card in the home grid and its detail page in `work/project.html`. Add, remove, or reorder items there.
 
+## Deploy (GitHub + Vercel)
+
+This is a zero-config static site. No build step.
+
+1. **Push to GitHub** — commit the repo and push to a GitHub repository.
+2. **Import in Vercel** — at [vercel.com/new](https://vercel.com/new), import the repo.
+   - Framework Preset: **Other**
+   - Build Command: *(leave empty)*
+   - Output Directory: *(leave empty — root is served as-is)*
+3. **Deploy.** Vercel serves `index.html` at the root; `vercel.json` adds long-lived caching for `/assets` and `/uploads` plus baseline security headers.
+
+Every push to the default branch triggers an automatic production redeploy; pull requests get preview URLs.
+
 ## Fonts
 
 Geist, Geist Mono, and Instrument Serif, loaded from Google Fonts.
