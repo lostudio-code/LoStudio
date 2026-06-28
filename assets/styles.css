@@ -99,6 +99,8 @@ section { position: relative; }
 .topbar .brand { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; flex: 0 0 auto; white-space: nowrap; }
 .brand-fallback { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; color: #fff; }
 
+/* ===== Wordmark logo ===== */
+.brand-logo { height: 22px; width: auto; display: block; flex: 0 0 auto; }
 /* ===== Walking logo mark — articulated rig ===== */
 .brand-icon { width: auto; height: 26px; flex: 0 0 auto; position: relative; display: inline-flex; align-items: center; }
 .logo-rig { height: 26px; width: auto; display: block; overflow: visible; }
@@ -317,7 +319,8 @@ p { max-width: 75%; }
 .pcard[href*="projectdiscovery-brand"] .pcard-media img { object-fit: cover; object-position: center center; }
 .pcard[href*="projectdiscovery-product"] .pcard-media img { object-position: center 38%; }
 .pcard[href*="projectdiscovery-website"] .pcard-media { background: #0a0a0c; }
-.pcard[href*="projectdiscovery-website"] .pcard-media img { object-fit: cover; object-position: left center; }
+.pcard[href*="projectdiscovery-website"] .pcard-media img { object-fit: cover; object-position: center center; transform: scale(1.12); }
+.pcard[href*="projectdiscovery-website"]:hover .pcard-media img { transform: scale(1.17); }
 .pcard:hover .pcard-media img { transform: scale(1.05); }
 .pcard-media .mk { transition: transform .5s cubic-bezier(.2,.7,.3,1); }
 .pcard:hover .pcard-media .mk { transform: scale(1.03); }
