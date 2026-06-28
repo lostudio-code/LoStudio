@@ -17,7 +17,7 @@
 .cs-meta .v { font-size: 16px; font-weight: 600; margin-top: 7px; letter-spacing: -.01em; color: #fff; }
 
 /* ---------- BODY (light) ---------- */
-.cs-body { padding: 64px 0 0; background: var(--paper); }
+.cs-body { padding: 64px 0 56px; background: var(--paper); }
 .cs-prose { max-width: none; margin-top: 22px; }
 .cs-prose p { font-size: 16.5px; line-height: 1.65; color: var(--ink-2); margin-bottom: 18px; }
 .cs-prose p:last-child { margin-bottom: 0; }

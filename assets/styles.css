@@ -97,8 +97,7 @@ section { position: relative; }
 .topnav-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .topnav .brand { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; flex: 0 0 auto; white-space: nowrap; }
 .topbar .brand { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; flex: 0 0 auto; white-space: nowrap; }
-.brand-logo { height: 24px; width: auto; margin-left: -12px; flex: 0 0 auto; filter: brightness(0) invert(1); }
-.brand-fallback { display: none; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; color: #fff; }
+.brand-fallback { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; color: #fff; }
 
 /* ===== Walking logo mark — articulated rig ===== */
 .brand-icon { width: auto; height: 26px; flex: 0 0 auto; position: relative; display: inline-flex; align-items: center; }
@@ -314,6 +313,11 @@ p { max-width: 75%; }
 /* Ten-X thumbnail is a square logo — anchor on center so the mark reads centered, cover keeps it full-size and bg-filling */
 .pcard[href*="ten-x-brand"] .pcard-media { background: #0b0e16; }
 .pcard[href*="ten-x-brand"] .pcard-media img { object-position: center center; }
+.pcard[href*="projectdiscovery-brand"] .pcard-media { background: #0b0e16; }
+.pcard[href*="projectdiscovery-brand"] .pcard-media img { object-fit: cover; object-position: center center; }
+.pcard[href*="projectdiscovery-product"] .pcard-media img { object-position: center 38%; }
+.pcard[href*="projectdiscovery-website"] .pcard-media { background: #0a0a0c; }
+.pcard[href*="projectdiscovery-website"] .pcard-media img { object-fit: cover; object-position: left center; }
 .pcard:hover .pcard-media img { transform: scale(1.05); }
 .pcard-media .mk { transition: transform .5s cubic-bezier(.2,.7,.3,1); }
 .pcard:hover .pcard-media .mk { transform: scale(1.03); }
@@ -397,7 +401,7 @@ p { max-width: 75%; }
 .qc-slide blockquote { font-size: clamp(22px, 2.6vw, 33px); line-height: 1.38; letter-spacing: -.02em; font-weight: 500; color: #fff; max-width: 38ch; margin: 0 auto; text-wrap: balance; }
 .qc-slide figcaption { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 32px; }
 .qc-slide figcaption img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line-2); background: linear-gradient(150deg, #2a3a66, #0d1322); }
-.qc-slide .qc-who { text-align: left; display: flex; flex-direction: column; }
+.qc-slide .qc-who { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .qc-slide .qc-who .nm { font-size: 16px; font-weight: 600; color: #fff; letter-spacing: -.01em; white-space: nowrap; }
 .qc-slide .qc-who .co { font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--d-ink-3); margin-top: 4px; }
 .avatar-fallback { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 18px; color: #fff; border: 1px solid var(--line-2); background: linear-gradient(150deg, #3354c9, #16224a); flex: 0 0 auto; }

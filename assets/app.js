@@ -33,29 +33,6 @@
   bindImages();
   window.LO_bindImages = bindImages;
 
-  /* ---- logo fallback ---- */
-  $$('.brand-logo').forEach((logo) => {
-    logo.addEventListener('error', () => {
-      logo.style.display = 'none';
-      const fb = logo.parentElement.querySelector('.brand-fallback');
-      if (fb) fb.style.display = 'flex';
-    });
-    if (logo.complete && logo.naturalWidth === 0) logo.dispatchEvent(new Event('error'));
-  });
-
-  /* ---- live clock (San Francisco) ---- */
-  const clockEl = $('#clock');
-  if (clockEl) {
-    const tick = () => {
-      try {
-        clockEl.textContent = new Intl.DateTimeFormat('en-US', {
-          hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'America/Los_Angeles'
-        }).format(new Date());
-      } catch (e) { clockEl.textContent = new Date().toLocaleTimeString(); }
-    };
-    tick(); setInterval(tick, 1000);
-  }
-
   /* ---- mobile menu (accessible dialog) ---- */
   const overlay = $('#menuOverlay');
   let menuLastFocus = null;
@@ -177,7 +154,7 @@
   window.addEventListener('load', checkReveal);
   setTimeout(checkReveal, 200);
 
-  /* ---- service illustrations: draw-on + ambient loop when card scrolls into focus ---- */
+  /* ---- service illustrations: draw-on as each card scrolls into focus (plays once) ---- */
   function setupIlloAnim() {
     const cards = $$('.svc-card');
     if (!cards.length || reduce) return;
@@ -249,16 +226,12 @@
     cards.forEach((card) => { const svg = $('.svc-illo svg', card); if (svg) prep(svg); });
 
     if (!('IntersectionObserver' in window)) {
-      cards.forEach((card) => {
-        card.classList.add('in');
-        const svg = $('.svc-illo svg', card); if (svg) play(svg);
-      });
+      cards.forEach((card) => { const svg = $('.svc-illo svg', card); if (svg) play(svg); });
       return;
     }
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
         if (en.isIntersecting) {
-          en.target.classList.add('in'); // triggers CSS ambient loop + entrance animation
           const svg = $('.svc-illo svg', en.target);
           if (svg) play(svg);
           io.unobserve(en.target);
@@ -297,15 +270,6 @@
       });
       if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; q.setAttribute('aria-expanded', 'true'); }
     });
-  });
-
-  /* ---- contact chips ---- */
-  $$('.chip-toggle').forEach((c) => c.addEventListener('click', () => c.classList.toggle('on')));
-  const form = $('#contactForm');
-  if (form) form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = $('.btn', form);
-    if (btn) { btn.textContent = 'Thanks — I\'ll be in touch ✓'; btn.style.pointerEvents = 'none'; }
   });
 
   /* ---- testimonial carousel ---- */
