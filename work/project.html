@@ -4,7 +4,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
-<title>Project · Lo Studio</title>
+<title>Case Study · Lo Studio — Michael DeBiase</title>
+<meta name="description" content="A selected case study from Lo Studio — the portfolio of Michael DeBiase. Brand, web, product UI, motion and go-to-market design." />
+<meta name="author" content="Michael DeBiase" />
+<meta name="theme-color" content="#141414" />
+<meta name="robots" content="index, follow" />
+<link id="canonical" rel="canonical" href="https://lostudio.net/work/project.html" />
+<link rel="icon" type="image/svg+xml" href="../assets/brand/logomark.svg" />
+<link rel="apple-touch-icon" href="../assets/brand/logo-mark.png" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lo Studio" />
+<meta id="ogTitle" property="og:title" content="Case Study · Lo Studio" />
+<meta id="ogDesc" property="og:description" content="A selected case study from the portfolio of Michael DeBiase." />
+<meta id="ogImage" property="og:image" content="https://lostudio.net/assets/brand/og-card.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta id="twTitle" name="twitter:title" content="Case Study · Lo Studio" />
+<meta id="twImage" name="twitter:image" content="https://lostudio.net/assets/brand/og-card.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -13,10 +28,11 @@
 <link rel="stylesheet" href="../assets/case.css" />
 </head>
 <body>
+<a class="skip-link" href="#cs">Skip to content</a>
 <div class="grain"></div>
 
 <!-- TOP NAV -->
-<nav class="topnav" id="topnav">
+<nav class="topnav" id="topnav" aria-label="Primary">
   <div class="topnav-inner">
     <a class="brand" href="../index.html">
       <span class="brand-icon" aria-hidden="true">
@@ -35,8 +51,7 @@
           </g>
         </svg>
       </span>
-      <img class="brand-logo" src="https://lostudio.net/wp-content/uploads/2022/03/LO_STUDIO_LOGO_DARK.png" alt="Lo Studio" />
-      <span class="brand-fallback"><span class="brand-mark">L</span>Lo Studio</span>
+      <span class="brand-fallback">Lo Studio</span>
     </a>
     <div class="topnav-links">
       <a href="../index.html#work"><span class="idx">01</span>Work</a>
@@ -44,7 +59,7 @@
       <a href="../index.html#process"><span class="idx">03</span>Process</a>
       <a href="../index.html#about"><span class="idx">04</span>About</a>
       <a href="../index.html#faq"><span class="idx">05</span>FAQ</a>
-      <a href="../index.html#contact"><span class="idx">06</span>Contact</a>
+      <a href="mailto:hello@lostudio.net"><span class="idx">06</span>Contact</a>
     </div>
     <div class="topnav-right">
       <a class="topnav-cta" href="https://calendly.com/lostudioinc/30min" target="_blank" rel="noopener">Book a call</a>
@@ -53,7 +68,7 @@
 </nav>
 
 <!-- MOBILE TOP BAR -->
-<header class="topbar">
+<header class="topbar" aria-label="Mobile">
   <a class="brand" href="../index.html">
     <span class="brand-icon" aria-hidden="true">
         <svg class="logo-rig" viewBox="0 0 491 745" xmlns="http://www.w3.org/2000/svg">
@@ -71,18 +86,17 @@
           </g>
         </svg>
       </span>
-    <img class="brand-logo" src="https://lostudio.net/wp-content/uploads/2022/03/LO_STUDIO_LOGO_DARK.png" alt="Lo Studio" />
-    <span class="brand-fallback"><span class="brand-mark">L</span>Lo Studio</span>
+    <span class="brand-fallback">Lo Studio</span>
   </a>
-  <button class="menu-btn" data-menu-open><span class="bars"><i></i><i></i></span>Menu</button>
+  <button class="menu-btn" data-menu-open aria-expanded="false" aria-controls="menuOverlay" aria-label="Open menu"><span class="bars"><i></i><i></i></span>Menu</button>
 </header>
-<div class="menu-overlay" id="menuOverlay">
-  <button class="close" data-menu-close>CLOSE ✕</button>
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Site menu">
+  <button class="close" data-menu-close aria-label="Close menu">CLOSE ✕</button>
   <a href="../index.html#work"><span class="idx">01</span>Work</a>
   <a href="../index.html#services"><span class="idx">02</span>Services</a>
   <a href="../index.html#process"><span class="idx">03</span>Process</a>
   <a href="../index.html#about"><span class="idx">04</span>About</a>
-  <a href="../index.html#contact"><span class="idx">06</span>Contact</a>
+  <a href="mailto:hello@lostudio.net"><span class="idx">06</span>Contact</a>
   <div class="menu-foot"><span>hello@lostudio.net</span><span>San Francisco · Available for work</span></div>
 </div>
 
@@ -97,12 +111,12 @@
       <a class="btn btn-primary reveal" data-d="1" href="https://calendly.com/lostudioinc/30min" target="_blank" rel="noopener">Book a call <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
     </div>
     <div class="footer-cols">
-      <div class="footer-col"><h5>Sitemap</h5><a href="../index.html#work">Work</a><a href="../index.html#services">Services</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></div>
+      <div class="footer-col"><h5>Sitemap</h5><a href="../index.html#work">Work</a><a href="../index.html#services">Services</a><a href="../index.html#about">About</a><a href="mailto:hello@lostudio.net">Contact</a></div>
       <div class="footer-col"><h5>Connect</h5><a href="https://www.linkedin.com/company/lo-studio-inc" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/lostudioinc/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@LoStudioInc" target="_blank" rel="noopener">YouTube</a></div>
       <div class="footer-col"><h5>Studio</h5><p>San Francisco, CA</p><p>Available for work</p><p>© 2026 Lo Studio</p></div>
     </div>
     <div class="wordmark">Lo Studio</div>
-    <div class="footer-bottom"><span>Brand &amp; Product Design — Michael DeBiase</span><a class="to-top" href="#top">Back to top ↑</a></div>
+    <div class="footer-bottom"><span>Brand &amp; Product Design — Michael DeBiase</span><a class="to-top" href="#cs">Back to top ↑</a></div>
   </div>
 </footer>
 </div>
@@ -114,6 +128,22 @@
   const id = params.get('id') || 'projectdiscovery-website';
   const P = window.LO.byId(id) || window.LO.projects[0];
   document.title = `${P.company} — ${P.title} · Lo Studio`;
+
+  /* ---- per-project SEO / social metadata ---- */
+  (function () {
+    const url = location.origin + location.pathname + '?id=' + P.id;
+    const title = `${P.company} — ${P.title} · Lo Studio`;
+    const desc = (P.summary || '').replace(/\s+/g, ' ').trim().slice(0, 160);
+    const img = P.poster || P.hero || 'https://lostudio.net/assets/brand/og-card.png';
+    const set = (sel, attr, val) => { const el = document.querySelector(sel); if (el && val) el.setAttribute(attr, val); };
+    set('#canonical', 'href', url);
+    set('meta[name="description"]', 'content', desc);
+    set('#ogTitle', 'content', title);
+    set('#ogDesc', 'content', desc);
+    set('#ogImage', 'content', img);
+    set('#twTitle', 'content', title);
+    set('#twImage', 'content', img);
+  })();
 
   const idx = window.LO.projects.findIndex(p => p.id === P.id);
   const next = window.LO.projects[(idx + 1) % window.LO.projects.length];
@@ -135,7 +165,7 @@
   const gallery = imgItems.map((g, i) => {
     const span = g.span ? g.span : (i === 0 ? 'wide' : '');
     const inner = g.img
-      ? `<img src="${g.img}" alt="${g.cap}" data-mock='${window.LO.mock(g.theme, P.accent).replace(/'/g,'&#39;')}' />`
+      ? `<img src="${g.img}" alt="${g.cap}" loading="lazy" decoding="async" data-mock='${window.LO.mock(g.theme, P.accent).replace(/'/g,'&#39;')}' />`
       : window.LO.mock(g.theme, P.accent);
     return `<div class="cs-shot ${span} reveal" data-d="${(i%3)+1}">${inner}<span class="cap">${g.cap}</span></div>`;
   }).join('');
@@ -161,17 +191,17 @@
       </div>
     </header>
 
+    ${stats ? `<section class="cs-body">
+      <div class="wrap">
+        <div class="cs-stats">${stats}</div>
+      </div>
+    </section>` : ''}
+
     ${P.heroVideo ? `<section class="cs-stage" aria-label="Featured motion graphics">
       <div class="cs-video cs-stage-video reveal" data-yt="${window.LO.ytId(P.heroVideo)}" role="button" tabindex="0" aria-label="Play: ${P.company} ${P.title}">
         <img src="${P.poster || P.hero}" alt="${P.company} ${P.title}" />
         <span class="vplay" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
         <span class="cap">Watch the film</span>
-      </div>
-    </section>` : ''}
-
-    ${stats ? `<section class="cs-body">
-      <div class="wrap">
-        <div class="cs-stats">${stats}</div>
       </div>
     </section>` : ''}
 
@@ -270,3 +300,6 @@
 <script src="../assets/app.js"></script>
 </body>
 </html>
+
+<style id="__om-edit-overrides">
+</style>
