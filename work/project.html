@@ -166,10 +166,12 @@
     </section>` : ''}
 
     ${P.heroVideo ? `<section class="cs-stage" aria-label="Featured motion graphics">
-      <div class="cs-video cs-stage-video reveal" data-yt="${window.LO.ytId(P.heroVideo)}" role="button" tabindex="0" aria-label="Play: ${P.company} ${P.title}">
-        <img src="${P.poster || P.hero}" alt="${P.company} ${P.title}" />
-        <span class="vplay" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-        <span class="cap">Watch the film</span>
+      <div class="wrap">
+        <div class="cs-video cs-stage-video reveal" data-yt="${window.LO.ytId(P.heroVideo)}" role="button" tabindex="0" aria-label="Play: ${P.company} ${P.title}">
+          <img src="${P.poster || P.hero}" alt="${P.company} ${P.title}" />
+          <span class="vplay" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <span class="cap">Watch the film</span>
+        </div>
       </div>
     </section>` : ''}
 
