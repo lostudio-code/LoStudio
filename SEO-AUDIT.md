@@ -111,9 +111,11 @@ Neither file is present in the project. A sitemap is valuable here because the p
 
 ## Quick-win checklist
 
-- [ ] Add static `<title>` + `<meta description>` to `project.html`; inject per-project values via JS
-- [ ] Add Open Graph + Twitter Card tags to both pages (per-project `og:image`)
-- [ ] Add `Person` JSON-LD on the homepage; breadcrumb schema on project pages
-- [ ] Add self-referencing `rel="canonical"` (dynamic on project pages)
-- [ ] Create `robots.txt` + `sitemap.xml` (include all `?id=` project URLs)
-- [ ] Fix the `#contact` / `#top` anchor mismatches
+- [x] Add static `<title>` + `<meta description>` to `project.html`; inject per-project values via JS
+- [x] Add Open Graph + Twitter Card tags to both pages (per-project `og:image`)
+- [x] Add `Person` JSON-LD on the homepage; breadcrumb schema on project pages
+- [x] Add self-referencing `rel="canonical"` (dynamic on project pages)
+- [x] Create `robots.txt` + `sitemap.xml` (include all `?id=` project URLs)
+- [x] Fix the `#contact` / `#top` anchor mismatches
+
+**All items resolved as of July 10, 2026.**

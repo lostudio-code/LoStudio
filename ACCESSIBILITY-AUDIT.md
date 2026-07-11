@@ -131,10 +131,12 @@ or specifically stop the marquee/pip/wheel animations for those users.
 
 ## Quick-win checklist
 
-- [ ] Add a global high-contrast `:focus-visible` style
-- [ ] Add a skip link; wrap homepage content in `<main>`; label both `<nav>`s
-- [ ] Raise low-opacity text tokens (`--ink-4`, `--d-ink-4`) to meet 4.5:1
-- [ ] Add `aria-expanded`/`aria-controls` + `hidden` to FAQ accordion
-- [ ] Make the mobile menu a real dialog (focus trap, Esc, `aria-expanded`)
-- [ ] Add `aria-live` to the carousel; pause on focus-within
-- [ ] Gate CSS marquee/keyframe loops behind `prefers-reduced-motion`
+- [x] Add a global high-contrast `:focus-visible` style
+- [x] Add a skip link; wrap homepage content in `<main>`; label both `<nav>`s
+- [x] Raise low-opacity text tokens (`--ink-4`, `--d-ink-4`) to meet 4.5:1
+- [x] Add `aria-expanded`/`aria-controls` + hidden-state management to FAQ accordion
+- [x] Make the mobile menu a real dialog (focus trap, Esc, `aria-expanded`) — also closes on scroll
+- [x] Add `aria-live` to the carousel; pause on focus-within
+- [x] Gate CSS marquee/keyframe loops behind `prefers-reduced-motion`
+
+**All items resolved as of July 10, 2026.**

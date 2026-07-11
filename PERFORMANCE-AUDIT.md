@@ -121,10 +121,12 @@ The hero logo, several gallery images, and all testimonial avatars are loaded fr
 
 ## Quick-win checklist
 
-- [ ] Batch-convert `uploads/` PNGs → WebP/AVIF and resize to display size (≈ –85% transfer)
-- [ ] Add `loading="lazy"` to work-grid and gallery images
-- [ ] Add `width`/`height` (or `aspect-ratio`) to all images
-- [ ] `defer` all scripts; move `image-slot.js` out of `<head>`
-- [ ] Replace 725 KB `logo-mark.png` touch icon with a 180×180 optimized file
-- [ ] Pause hero canvas/parallax rAF when hero is off-screen
-- [ ] Self-host fonts + remaining third-party images
+- [x] Batch-convert `uploads/` PNGs → WebP/AVIF and resize to display size (≈ –85% transfer)
+- [x] Add `loading="lazy"` to work-grid and gallery images
+- [x] Add `width`/`height` (or `aspect-ratio`) to all images
+- [x] `defer` all scripts; move `image-slot.js` out of `<head>`
+- [x] Replace 725 KB `logo-mark.png` touch icon with a 180×180 optimized file
+- [x] Pause hero canvas/parallax rAF when hero is off-screen (also cube + case-study starfield)
+- [x] Self-host third-party images; trim Google Fonts to used weights (Geist 400–800)
+
+**All items resolved as of July 10, 2026.** Remaining optional: self-hosting fonts as woff2.

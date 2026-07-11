@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found · Lo Studio</title>
+<meta name="description" content="This page doesn't exist. Head back to the Lo Studio portfolio." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#141414" />
+<link rel="icon" type="image/svg+xml" href="assets/brand/logomark.svg" />
+<link rel="apple-touch-icon" href="assets/brand/logo-mark.png" />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  .nf-stage { min-height: 100vh; display: grid; place-items: center; background: var(--bg); position: relative; overflow: hidden; padding: 24px; }
+  .nf-inner { position: relative; z-index: 2; text-align: center; display: grid; gap: 18px; justify-items: center; }
+  .nf-code { font-family: var(--mono); font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--link); }
+  .nf-title { font-size: clamp(52px, 9vw, 130px); font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--ink); }
+  .nf-title em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; color: var(--link); }
+  .nf-copy { color: var(--ink-3); font-size: 17px; max-width: 46ch; text-wrap: pretty; }
+  .nf-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+  .nf-actions a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; text-decoration: none; border-radius: 999px; padding: 13px 24px; transition: transform .15s ease, background .15s ease; }
+  .nf-actions a.primary { background: var(--link); color: var(--link-ink); }
+  .nf-actions a.primary:hover { transform: translateY(-2px); }
+  .nf-actions a.ghost { color: var(--ink); border: 1px solid var(--d-line-2); }
+  .nf-actions a.ghost:hover { border-color: var(--link); color: var(--link); }
+  .nf-glow { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 720px; height: 720px; background: radial-gradient(circle, rgba(217,244,0,.08), transparent 62%); pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<main class="nf-stage">
+  <div class="nf-glow"></div>
+  <div class="nf-inner">
+    <p class="nf-code">Error · 404</p>
+    <h1 class="nf-title">Lost, <em>not found.</em></h1>
+    <p class="nf-copy">This page doesn't exist — it may have moved, or the link is wrong. The work is still where it should be.</p>
+    <div class="nf-actions">
+      <a class="primary" href="/">Back to home</a>
+      <a class="ghost" href="/#work">See the work</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>
