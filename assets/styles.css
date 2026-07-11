@@ -314,9 +314,6 @@ p { max-width: 75%; }
 .pcard:hover::after { opacity: 1; animation: beam-spin 2.6s linear infinite; }
 .pcard-media { position: relative; aspect-ratio: 16/10.5; overflow: hidden; }
 .pcard-media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
-/* Ten-X thumbnail is a square logo — anchor on center so the mark reads centered, cover keeps it full-size and bg-filling */
-.pcard[href*="ten-x-brand"] .pcard-media { background: #0b0e16; }
-.pcard[href*="ten-x-brand"] .pcard-media img { object-position: center center; }
 .pcard[href*="projectdiscovery-brand"] .pcard-media { background: #0b0e16; }
 .pcard[href*="projectdiscovery-brand"] .pcard-media img { object-fit: cover; object-position: center center; }
 .pcard[href*="projectdiscovery-product"] .pcard-media img { object-position: center 38%; }

@@ -65,6 +65,7 @@
   $$('[data-menu-open]').forEach(b => b.addEventListener('click', openMenu));
   $$('[data-menu-close]').forEach(b => b.addEventListener('click', closeMenu));
   if (overlay) overlay.addEventListener('click', (e) => { if (e.target.tagName === 'A') closeMenu(); });
+  window.addEventListener('scroll', () => { if (overlay && overlay.classList.contains('open')) closeMenu(); }, { passive: true });
 
   /* ---- rotating role words ---- */
   const rot = $('.role-rot');
@@ -259,16 +260,17 @@
     if (!q || !a) return;
     const panelId = 'faq-panel-' + (i + 1);
     a.id = panelId;
+    a.setAttribute('aria-hidden', 'true');
     q.setAttribute('aria-controls', panelId);
     q.setAttribute('aria-expanded', 'false');
     q.addEventListener('click', () => {
       const open = item.classList.contains('open');
       $$('.faq-item.open').forEach((o) => {
         o.classList.remove('open');
-        const oa = $('.faq-a', o); if (oa) oa.style.maxHeight = '0px';
+        const oa = $('.faq-a', o); if (oa) { oa.style.maxHeight = '0px'; oa.setAttribute('aria-hidden', 'true'); }
         const oq = $('.faq-q', o); if (oq) oq.setAttribute('aria-expanded', 'false');
       });
-      if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; q.setAttribute('aria-expanded', 'true'); }
+      if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; a.setAttribute('aria-hidden', 'false'); q.setAttribute('aria-expanded', 'true'); }
     });
   });
 
@@ -412,9 +414,14 @@
       const rot = el.dataset.rot ? ` rotate(${el.dataset.rot}deg)` : '';
       el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0)${rot}`;
     });
-    requestAnimationFrame(raf);
+    if (pxVisible) pxRaf = requestAnimationFrame(raf); else pxRaf = null;
   }
-  requestAnimationFrame(raf);
+  let pxVisible = true, pxRaf = null;
+  function startPx() { if (!pxRaf && pxVisible) pxRaf = requestAnimationFrame(raf); }
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver((ents) => { pxVisible = ents[0].isIntersecting; if (pxVisible) startPx(); }).observe(hero);
+  }
+  startPx();
 
   /* ---- 3D tilt — cursor-skewed, with glare ---- */
   function bindTilt(scope) {

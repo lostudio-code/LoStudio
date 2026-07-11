@@ -176,7 +176,12 @@
         applySpin();
       }
     }
-    requestAnimationFrame(loop);
+    if (cubeVisible) cubeRaf = requestAnimationFrame(loop); else cubeRaf = null;
   }
-  requestAnimationFrame(loop);
+  let cubeVisible = true, cubeRaf = null;
+  function startCube() { if (!cubeRaf && cubeVisible) cubeRaf = requestAnimationFrame(loop); }
+  if (stageEl && 'IntersectionObserver' in window) {
+    new IntersectionObserver((ents) => { cubeVisible = ents[0].isIntersecting; if (cubeVisible) startCube(); }).observe(stageEl);
+  }
+  startCube();
 })();

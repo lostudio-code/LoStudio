@@ -7,7 +7,6 @@
   const PD = '#8b5cf6';   // ProjectDiscovery — violet
   const LD = '#ff6a3d';   // LaunchDarkly — blue
   const GX = '#ff8a3d';   // Galaxy — indigo
-  const TX = '#ff6a3d';   // Ten-X — coral
 
   const PROJECTS = [
     {
@@ -266,45 +265,6 @@
         {cap:'eBook ad · 2', theme:'ads', yt:'8Qpnn9OhyJY', img:'https://i.ytimg.com/vi/8Qpnn9OhyJY/maxresdefault.jpg'}
       ]
     },
-    /* --- Ten-X items commented out (remove the comment markers to restore) ---
-    {
-      id: 'ten-x-brand', company: 'Ten-X', title: 'Brand Guidelines',
-      cat: 'Brand', kind: 'Identity', year: '2019', accent: TX, theme: 'brand', size: 'sm',
-      hero: 'https://lostudio.net/wp-content/uploads/2015/09/Ten-X_Style_Guide_Thumbnail.jpg',
-      summary: 'Built brand guidelines for Ten-X, a clear, comprehensive system that kept a fast-moving real-estate marketplace consistent across every touchpoint. The company moved fast across a lot of teams and channels, and without a single source of truth the brand kept drifting. I authored guidelines covering logo usage, color, type, and applications that kept everything aligned.',
-      role: 'Brand Designer', scope: 'Guidelines · System · Applications', outcome: 'Consistent at scale',
-      body: [],
-      stats: [{n:'Full',l:'Guidelines'},{n:'Many',l:'Touchpoints'},{n:'Aligned',l:'Teams'}],
-      gallery: [
-        {cap:'Brand guidelines · cover', theme:'brand', span:'wide tall', img:'https://lostudio.net/wp-content/uploads/2015/09/Ten-X_Style_Guide_Thumbnail.jpg'},
-        {cap:'Guidelines · p.04', theme:'brand', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/Ten-X_Style_Guide_Page_04.jpg'},
-        {cap:'Guidelines · p.08', theme:'brand', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/Ten-X_Style_Guide_Page_08.jpg'},
-        {cap:'Guidelines · p.13', theme:'brand', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/Ten-X_Style_Guide_Page_13.jpg'},
-        {cap:'Guidelines · p.19', theme:'brand', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/Ten-X_Style_Guide_Page_19.jpg'},
-        {cap:'Guidelines · p.26', theme:'brand', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/Ten-X_Style_Guide_Page_26.jpg'},
-        {cap:'Guidelines · p.33', theme:'brand', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/Ten-X_Style_Guide_Page_33.jpg'},
-        {cap:'Guidelines · p.40', theme:'brand', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/Ten-X_Style_Guide_Page_40.jpg'},
-        {cap:'Guidelines · p.43', theme:'brand', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/Ten-X_Style_Guide_Page_43.jpg'}
-      ]
-    },
-    {
-      id: 'ten-x-sxsw', company: 'Ten-X', title: 'SXSW',
-      cat: 'Event', kind: 'Experiential', year: '2019', accent: TX, theme: 'event', size: 'sm',
-      hero: 'https://lostudio.net/wp-content/uploads/2022/05/SXSW_1.jpg',
-      summary: 'Designed Ten-X’s SXSW activation, with environmental and event graphics that brought the brand to life on the ground in Austin. SXSW is a crowded, high-energy stage, so Ten-X needed a presence that stood out and felt unmistakably on-brand. I designed the booth, signage, swag, and social to turn the brand into a memorable in-person experience.',
-      role: 'Designer', scope: 'Booth · Signage · Swag', outcome: 'Brand, IRL',
-      body: [],
-      stats: [{n:'SXSW',l:'Activation'},{n:'IRL',l:'Environmental'},{n:'Standout',l:'Presence'}],
-      gallery: [
-        {cap:'Austin activation · 01', theme:'event', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/SXSW_2.jpg'},
-        {cap:'Austin activation · 02', theme:'event', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/SXSW_3.jpg'},
-        {cap:'Austin activation · 03', theme:'event', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/SXSW_4.jpg'},
-        {cap:'Austin activation · 04', theme:'event', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/SXSW_5.jpg'},
-        {cap:'Austin activation · 05', theme:'event', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/SXSW_6.jpg'},
-        {cap:'Austin activation · 06', theme:'event', span:'half tall', img:'https://lostudio.net/wp-content/uploads/2022/05/SXSW_7.jpg'}
-      ]
-    }
-    --- end Ten-X items --- */
   ];
 
   /* ---------- branded mock-screen renderer ---------- */
@@ -346,11 +306,14 @@
     return /^[\w-]{11}$/.test(String(v).trim()) ? String(v).trim() : '';
   }
 
+  const IMG_DIMS = {"uploads/PD-Brand-Thumb.webp":[1600,900],"uploads/PD-Web-Thumb-new.png":[721,444],"uploads/Brand Guidelines - 18.webp":[1600,900],"uploads/Menu - Platform.webp":[1440,460],"uploads/pd-playtika-social.webp":[1200,627],"uploads/vulnerability-sh-stats-lightmode.webp":[1484,758],"uploads/Brand Guidelines - 1.webp":[1600,900],"uploads/Brand Guidelines - 8.webp":[1600,900],"uploads/ld-testimonial-elastic.webp":[1200,628],"uploads/Brand Guidelines - 14.webp":[1600,900],"uploads/Brand Guidelines - 9.webp":[1600,900],"uploads/Brand Guidelines - 24.webp":[1600,900],"uploads/Brand Guidelines - 5.webp":[1600,900],"uploads/Brand Guidelines - 23.webp":[1600,900],"uploads/HSS-Brendan.webp":[1600,1067],"uploads/Brand Guidelines - 15.webp":[1600,900],"uploads/vulnerability-sh-products-lightmode.webp":[1484,758],"uploads/14_Test_Innovations.webp":[1068,549],"uploads/Brand Guidelines - 3.webp":[1600,900],"uploads/Brand Guidelines - 22.webp":[1600,900],"uploads/12_Feature_Workflows-34ac2b80.webp":[1088,549],"uploads/19_Discover_when_a_Flag.webp":[1068,549],"uploads/18_Search_for_References.webp":[1068,549],"uploads/1_Release_Confidentialy-84a07bcb.webp":[1069,656],"uploads/Brand Guidelines - 11.webp":[1600,900],"uploads/HSS-Email-Confirmation.webp":[640,998],"uploads/HSS-Waffle.webp":[1600,1067],"uploads/HSS-Thumbnail.webp":[1600,900],"uploads/Brand Guidelines - 12.webp":[1600,900],"uploads/vulnerability-sh-search-lightmode.webp":[1484,758],"uploads/16_App_Modernization.webp":[1068,549],"uploads/Brand Guidelines - 17.webp":[1600,900],"uploads/17_Filter_by_Repository.webp":[1068,549],"uploads/Galaxy-Thumb.webp":[1600,901],"uploads/Brand Guidelines - 10.webp":[1600,900],"uploads/13_Platform_Architecture-025f974d.webp":[1068,549],"uploads/Data_Dog.webp":[1600,900],"uploads/Brand Guidelines - 7.webp":[1600,900],"uploads/6_APIs-7a0befba.webp":[1068,549],"uploads/Brand Guidelines - 16.webp":[1600,900],"uploads/Brand Guidelines - 20.webp":[1600,900],"uploads/5_SDKs-b6440c8b.webp":[1068,549],"uploads/vulnerability-sh-library-lightmode.webp":[1484,758],"uploads/21_Advanced_Targeting.webp":[1068,549],"uploads/Brand Guidelines - 13.webp":[1600,900],"uploads/7_Integrations-70d5edb0.webp":[1068,549],"uploads/11_Feature_Flags-2cca8e07.webp":[1068,549],"uploads/Brand Guidelines - 2.webp":[1600,900],"uploads/22_Technical_Debt_Management.webp":[1068,549],"uploads/Brand Guidelines - 26.webp":[1600,900],"uploads/Brand Guidelines - 4.webp":[1600,900],"uploads/9_Experimentation-fd81e67a.webp":[1068,549],"uploads/Trajectory Nano Series Week 1 of 4_ Making Releases Boring in the Enterprise.webp":[1600,900],"uploads/8_Code_References-023d9e30.webp":[1068,549],"uploads/Uberflip_Explainer.webp":[1600,900],"uploads/20_Workflow_Automation.webp":[1068,549],"uploads/Email-Vulnerability-Scan.webp":[1280,1482],"uploads/vulnerability-sh-products-darkmode.webp":[1484,758],"uploads/FFT_ DevOps at Speed with Feature Flags.webp":[1600,900],"uploads/FFT_Deploying rapidly for continuous integration with Heidi Waterhouse.webp":[1600,900],"uploads/10_Data_Export-d7ece312.webp":[1068,549],"uploads/Webinars_Dynatrace Webinar.webp":[1600,900],"uploads/Brand Guidelines - 6.webp":[1600,900],"uploads/Brand Guidelines - 21.webp":[1600,900],"uploads/FFT_How Atlassian Does DevOps Webinar - Building Products.webp":[1600,900],"uploads/23_Security_and_Administration.webp":[1068,549],"uploads/3_Safely_Migrate_Systems-6027ae61.webp":[1068,656],"uploads/Uberflip_Code_Refs.webp":[1600,900],"uploads/2_Improve_Reliability-3782a307.webp":[1068,656],"uploads/PD-Product-Thumb.webp":[1080,1080],"uploads/vulnerability-sh-ssearch-darkmode.webp":[1484,758],"uploads/15_Scale_Safe_Releases.webp":[1069,549],"uploads/Brand Guidelines - 25.webp":[1600,900],"uploads/Build_buy.webp":[802,812],"uploads/HSS-PJ-Metz.webp":[1200,627],"uploads/FFT_ Feature toggles and hypothesis-driven development _ DevNation Tech Talk.webp":[1600,900],"uploads/Brand Guidelines - 19.webp":[1600,900],"uploads/HSS-Aaron.webp":[1600,1067],"uploads/FFT_SOC2 is not a 4 letter word_ A startup guide to compliance.webp":[1600,900],"uploads/Webinars_The Fallacy of Move Fast and Break Things.webp":[1600,900],"uploads/vulnerability-sh-stats-darkmode.webp":[1484,758],"uploads/FFT_Enabling Continuous Delivery with Feature Flags and LaunchDarkly.webp":[1600,900],"uploads/4_Run_Actionable_Experiments-f50660e8.webp":[1068,666],"uploads/vulnerability-sh-library-darkmode.webp":[1484,758],"uploads/Testimonial - All.webp":[1600,900],"uploads/TIP_How LaunchDarkly Enables Product Managers to Test in Production.webp":[1600,900],"uploads/GS_Targeting- Taking Your Feature Flags Further.webp":[1600,900],"uploads/FFT_When Feature flags go bad.webp":[1600,900],"uploads/HSS-MichaelSam.webp":[1600,1200],"uploads/Email-Weekly-Report.webp":[1280,3950],"uploads/Blog-Nuclei.webp":[1200,630],"uploads/FFT_How to create feature flags in LaunchDarkly.webp":[1600,900],"uploads/Security.webp":[1440,3349],"uploads/Uberflip_AMA with Jon Smart DOES U.S. Virtual.webp":[1600,900],"uploads/Website-Pricing.webp":[1440,6710],"uploads/What_is_Feature_Management.webp":[1440,4013],"uploads/Website-Launch-Week.webp":[1600,5902],"uploads/Website-Case-Study-50978f6a.webp":[1440,6020],"uploads/Build_vs_Buy.webp":[1440,4090],"uploads/Case_Studies.webp":[1440,5257],"uploads/Website-Enterprise.webp":[1440,9319],"uploads/Solution.webp":[1440,5947],"uploads/Why_LaunchDarkly.webp":[1440,5281],"uploads/Our_Customers.webp":[1440,5630],"uploads/Enterprise.webp":[1440,6305],"uploads/Code_References.webp":[1440,4754],"uploads/Website-Vulnerability-Management.webp":[1440,7502],"uploads/The_Definitive_Guide_to_Feature_Management.webp":[1440,5828],"uploads/Website-Homepage.webp":[1440,9374],"uploads/github_stars_gif-1782577183700.gif":[600,315]};
+
   window.LO = {
     projects: PROJECTS,
     byId: (id) => PROJECTS.find(p => p.id === id),
     mock,
     ytId,
-    colors: { PD, LD, GX, TX }
+    colors: { PD, LD, GX },
+    dims: IMG_DIMS
   };
 })();
