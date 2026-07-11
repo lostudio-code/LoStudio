@@ -20,9 +20,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta id="twTitle" name="twitter:title" content="Case Study · Lo Studio" />
 <meta id="twImage" name="twitter:image" content="https://lostudio.net/assets/brand/og-card.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/fonts/fonts.css" />
 <link rel="stylesheet" href="../assets/styles.css" />
 <link rel="stylesheet" href="../assets/sections.css" />
 <link rel="stylesheet" href="../assets/case.css" />
@@ -93,6 +91,9 @@
 <script>
 (function () {
   const params = new URLSearchParams(location.search);
+  const wh = (src) => { const d = (window.LO.dims || {})[src] ; return d ? ` width="${d[0]}" height="${d[1]}"` : ''; };
+  /* resolve site-root-relative asset paths ('uploads/…') against this /work/ page */
+  const asset = (p) => (p && !/^(?:https?:)?\//.test(p)) ? '../' + p : p;
   const id = params.get('id') || 'projectdiscovery-website';
   const P = window.LO.byId(id) || window.LO.projects[0];
   document.title = `${P.company} — ${P.title} · Lo Studio`;
@@ -102,7 +103,8 @@
     const url = location.origin + location.pathname + '?id=' + P.id;
     const title = `${P.company} — ${P.title} · Lo Studio`;
     const desc = (P.summary || '').replace(/\s+/g, ' ').trim().slice(0, 160);
-    const img = P.poster || P.hero || 'https://lostudio.net/assets/brand/og-card.png';
+    const raw = P.poster || P.hero || '';
+    const img = /^https?:/.test(raw) ? raw : (raw ? 'https://lostudio.net/' + raw.replace(/^\//, '') : 'https://lostudio.net/assets/brand/og-card.png');
     const set = (sel, attr, val) => { const el = document.querySelector(sel); if (el && val) el.setAttribute(attr, val); };
     set('#canonical', 'href', url);
     set('meta[name="description"]', 'content', desc);
@@ -111,6 +113,18 @@
     set('#ogImage', 'content', img);
     set('#twTitle', 'content', title);
     set('#twImage', 'content', img);
+    const crumbs = document.createElement('script');
+    crumbs.type = 'application/ld+json';
+    crumbs.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://lostudio.net/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Work', 'item': 'https://lostudio.net/#work' },
+        { '@type': 'ListItem', 'position': 3, 'name': `${P.company} — ${P.title}`, 'item': 'https://lostudio.net/work/project.html?id=' + P.id }
+      ]
+    });
+    document.head.appendChild(crumbs);
   })();
 
   const idx = window.LO.projects.findIndex(p => p.id === P.id);
@@ -124,7 +138,7 @@
   const videos = vidItems.map((g, i) => {
     const vid = window.LO.ytId(g.yt);
     return `<div class="cs-video reveal" data-d="${(i%3)+1}"${vid ? ` data-yt="${vid}" role="button" tabindex="0" aria-label="Play: ${g.cap}"` : ''}>
-      ${g.img ? `<img src="${g.img}" alt="${g.cap}" loading="lazy" />` : ''}
+      ${g.img ? `<img src="${asset(g.img)}" alt="${g.cap}" loading="lazy" />` : ''}
       ${vid ? `<span class="vplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>` : ''}
       <span class="cap">${g.cap}</span>
     </div>`;
@@ -133,7 +147,7 @@
   const gallery = imgItems.map((g, i) => {
     const span = g.span ? g.span : (i === 0 ? 'wide' : '');
     const inner = g.img
-      ? `<img src="${g.img}" alt="${g.cap}" loading="lazy" decoding="async" data-mock='${window.LO.mock(g.theme, P.accent).replace(/'/g,'&#39;')}' />`
+      ? `<img src="${asset(g.img)}" alt="${g.cap}"${wh(g.img)} loading="lazy" decoding="async" data-mock='${window.LO.mock(g.theme, P.accent).replace(/'/g,'&#39;')}' />`
       : window.LO.mock(g.theme, P.accent);
     return `<div class="cs-shot ${span} reveal" data-d="${(i%3)+1}">${inner}<span class="cap">${g.cap}</span></div>`;
   }).join('');
@@ -168,7 +182,7 @@
     ${P.heroVideo ? `<section class="cs-stage" aria-label="Featured motion graphics">
       <div class="wrap">
         <div class="cs-video cs-stage-video reveal" data-yt="${window.LO.ytId(P.heroVideo)}" role="button" tabindex="0" aria-label="Play: ${P.company} ${P.title}">
-          <img src="${P.poster || P.hero}" alt="${P.company} ${P.title}" />
+          <img src="${asset(P.poster || P.hero)}" alt="${P.company} ${P.title}" />
           <span class="vplay" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           <span class="cap">Watch the film</span>
         </div>
@@ -258,12 +272,18 @@
       for (let i = 0; i < n; i++) stars.push({ x: Math.random()*W, y: Math.random()*H, z: Math.random(), r: Math.random()*1.3+0.25, tw: Math.random()*6.28, s: Math.random()*0.7+0.25 });
     }
     resize(); window.addEventListener('resize', resize);
-    (function draw(){ t+=0.016; ctx.clearRect(0,0,W,H);
+    let starsOn = true, starsRaf = null;
+    function draw(){ t+=0.016; ctx.clearRect(0,0,W,H);
       for (const s of stars){ s.tw += s.s*0.04; const a=(s.z*0.5+0.18)*(0.6+0.4*Math.sin(s.tw));
         ctx.beginPath(); ctx.arc(((s.x - t*4*s.z)%W+W)%W, s.y, s.r, 0, 6.28);
         ctx.fillStyle='rgba('+(s.z>0.85?'255,170,70':'255,210,185')+','+a.toFixed(3)+')'; ctx.fill(); }
-      requestAnimationFrame(draw);
-    })();
+      if (starsOn) starsRaf = requestAnimationFrame(draw); else starsRaf = null;
+    }
+    function startStars() { if (!starsRaf && starsOn) starsRaf = requestAnimationFrame(draw); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((ents) => { starsOn = ents[0].isIntersecting; if (starsOn) startStars(); }).observe(canvas);
+    }
+    startStars();
   }
 })();
 </script>
