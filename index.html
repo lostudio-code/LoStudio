@@ -18,18 +18,46 @@
 <meta property="og:title" content="Lo Studio — Marketing & Brand Design — Michael DeBiase" />
 <meta property="og:description" content="The full creative stack for startups and enterprises — brand, web, product UI, motion & go-to-market design." />
 <meta property="og:url" content="https://lostudio.net/" />
-<meta property="og:image" content="https://lostudio.net/assets/brand/og-card.png" />
+<meta property="og:image" content="https://lostudio.net/assets/brand/og-card.jpg" />
 <meta property="og:image:width" content="1080" />
 <meta property="og:image:height" content="1080" />
 <!-- Twitter -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Lo Studio — Marketing & Brand Design — Michael DeBiase" />
 <meta name="twitter:description" content="The full creative stack for startups and enterprises — brand, web, product UI, motion & go-to-market design." />
-<meta name="twitter:image" content="https://lostudio.net/assets/brand/og-card.png" />
+<meta name="twitter:image" content="https://lostudio.net/assets/brand/og-card.jpg" />
 
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
 <link rel="stylesheet" href="assets/styles.css" />
 <link rel="stylesheet" href="assets/sections.css" />
+<style>
+.am-overlay { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 4vh 20px; background: rgba(10,10,10,.7); backdrop-filter: blur(8px); opacity: 0; transition: opacity .25s ease; }
+.am-overlay[hidden] { display: none; }
+.am-overlay.open { opacity: 1; }
+.am-modal { width: min(760px, 100%); max-height: 74vh; display: flex; flex-direction: column; background: #161616; border: 1px solid rgba(255,255,255,.12); border-radius: 6px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,.6); transform: translateY(18px) scale(.98); transition: transform .3s cubic-bezier(.2,.7,.3,1); }
+.am-overlay.open .am-modal { transform: none; }
+.am-bar { display: flex; align-items: center; gap: 14px; height: 46px; padding: 0 16px; border-bottom: 1px solid rgba(255,255,255,.08); flex: none; }
+.am-dots { display: flex; gap: 7px; }
+.am-dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.14); }
+.am-file { font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em; color: rgba(255,255,255,.45); }
+.am-close { margin-left: auto; display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 5px; border: 1px solid rgba(255,255,255,.14); background: none; color: #fff; cursor: pointer; transition: border-color .15s, color .15s; }
+.am-close:hover { border-color: var(--link); color: var(--link); }
+.am-scroll { position: relative; overflow-y: auto; overscroll-behavior: contain; }
+.am-gutter { position: absolute; top: 0; left: 0; width: 54px; border-right: 1px solid rgba(255,255,255,.07); font-family: var(--mono); font-size: 12.5px; line-height: 34px; color: rgba(255,255,255,.22); padding-left: 16px; user-select: none; pointer-events: none; }
+.am-body { padding: 30px 34px 44px 88px; font-family: var(--mono); }
+.am-body p { font-size: 15px; line-height: 1.85; color: rgba(255,255,255,.78); max-width: 60ch; text-wrap: pretty; }
+.am-body p + p { margin-top: 18px; }
+.am-cmt { font-size: 13.5px !important; color: rgba(255,255,255,.34) !important; letter-spacing: .02em; }
+.am-cmt b { font-weight: 400; color: rgba(255,255,255,.55); }
+p.am-cmt { margin-top: 40px; } .am-body p.am-cmt:first-child { margin-top: 0; }
+.am-h { margin: 10px 0 18px; font-family: var(--mono); font-size: clamp(21px, 2.4vw, 28px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; color: #fff; }
+.am-h .ch, .am-body p .ch { opacity: 0; }
+.am-hl { background: rgba(255,255,255,.1); color: #fff; padding: 1px 5px; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.am-caret { display: inline-block; width: 8px; height: 1.05em; background: var(--link); vertical-align: text-bottom; margin-left: 5px; animation: amBlink 1.1s steps(1) infinite; }
+@keyframes amBlink { 50% { opacity: 0; } }
+body.am-lock { overflow: hidden; }
+@media (max-width: 640px){ .am-gutter { display: none; } .am-body { padding-left: 26px; padding-right: 26px; } }
+</style>
 
 <script type="application/ld+json">
 {
@@ -214,7 +242,7 @@
         </div>
       </div>
       <div class="reveal" data-d="1">
-        <p class="big">I help startups build brands that fuel growth. With 20+ years scaling companies like LaunchDarkly, ProjectDiscovery and Netflix, I specialize in marketing design that lets teams move fast without sacrificing quality.</p>
+        <p class="big">I help startups build brands that fuel growth. With 20+ years scaling companies like LaunchDarkly, ProjectDiscovery and Netflix, I specialize in marketing design that lets teams move fast without sacrificing quality. <a class="about-more" href="#about-michael" id="about-more-link">Learn more about Michael.</a></p>
         <p class="lead">From brand identity and web design to motion graphics, video production and event experiences, I deliver the full creative stack early-stage companies need to compete and scale.</p>
         <div class="exp">
           <h4>Where I've worked</h4>
@@ -242,7 +270,7 @@
       <div class="qc-viewport">
         <figure class="qc-slide is-active">
           <blockquote>Michael consistently advocates for our users, often sharing insights from the perspective of a new user. Whether by delivering mockups or proposing designs beyond his role, he keeps projects moving forward — his iterative approach aligns perfectly with shipping consistently to drive progress.</blockquote>
-          <figcaption><img src="uploads/Graham_Gawthorn.png" alt="Graham Gawthorn" loading="lazy" /><span class="qc-who"><span class="nm">Graham Gawthorn</span><span class="co">ProjectDiscovery</span></span></figcaption>
+          <figcaption><img src="uploads/Graham_Gawthorn.jpg" alt="Graham Gawthorn" loading="lazy" /><span class="qc-who"><span class="nm">Graham Gawthorn</span><span class="co">ProjectDiscovery</span></span></figcaption>
         </figure>
         <figure class="qc-slide">
           <blockquote>In the seven years Michael worked with me at Netflix I got to know what a smart, talented and enthusiastic creative force he is. He's always eager to learn and willing to tackle anything — creative direction, motion graphics, design, typography, anything.</blockquote>
@@ -258,7 +286,7 @@
         </figure>
         <figure class="qc-slide">
           <blockquote>Michael designed and built an explainer/product demo video for us — a compelling, high-quality asset on a tight budget and timeline. Great to work with, flexible with changes, and able to set strategy and elevate our vision. Highly recommended.</blockquote>
-          <figcaption><img src="uploads/JJ_Ackles.png" alt="JJ Ackles" loading="lazy" /><span class="qc-who"><span class="nm">JJ Ackles</span><span class="co">Long Game</span></span></figcaption>
+          <figcaption><img src="uploads/JJ_Ackles.jpg" alt="JJ Ackles" loading="lazy" /><span class="qc-who"><span class="nm">JJ Ackles</span><span class="co">Long Game</span></span></figcaption>
         </figure>
       </div>
       <div class="qc-controls">
@@ -375,7 +403,108 @@
   else build();
 })();
 </script>
+<!-- ============ ABOUT MICHAEL MODAL ============ -->
+<div class="am-overlay" id="am-overlay" role="dialog" aria-modal="true" aria-labelledby="am-title" hidden>
+  <div class="am-modal">
+    <div class="am-bar">
+      <span class="am-dots"><i></i><i></i><i></i></span>
+      <span class="am-file">about-michael.html</span>
+      <button class="am-close" id="am-close" aria-label="Close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="am-scroll" id="am-scroll">
+      <div class="am-gutter" id="am-gutter" aria-hidden="true"></div>
+      <div class="am-body">
+        <p class="am-cmt">&lt;!--  <b>About me</b>  --&gt;</p>
+        <h2 class="am-h" id="am-title">Inside My Creative Core</h2>
+        <p>I'm a <span class="am-hl">first-generation Italian kid from New York</span>, and a designer who's spent 20+ years helping brands grow up. Here's a little more of the story: the guy behind the portfolio.</p>
+        <p>Growing up, my life ran on two engines: <span class="am-hl">sports and art</span>. I played soccer, football, baseball, pretty much anything with a scoreboard. If it was competitive, I was in. Then at night I'd trade the cleats for a pencil. I never thought of these as opposites. Sports and art both come down to the same thing: reps, instinct, and knowing exactly when to make your move.</p>
+        <p>Art class turned into graffiti by the time I was a teenager, and at 16 I found digital design and never looked back. I didn't wait around for someone to teach me. I grabbed software books and figured it out on my own time, long before I ever sat in a design classroom. I made it official later with a couple of degrees, but that same <span class="am-hl">"teach yourself first"</span> instinct is still how I approach every project today.</p>
+        <p class="am-cmt">&lt;!--  <b>Outside the studio</b>  --&gt;</p>
+        <h2 class="am-h">If I'm Not Designing, I'm Outside</h2>
+        <p>Hiking, snowboarding, kayaking. <span class="am-hl">If it gets me outside, I'm probably already there.</span> Add travel to that list too. I'm happiest exploring somewhere new.</p>
+        <p>Most of my favorite ideas didn't show up at a desk. They showed up on a trail, or just being outside. I also enjoy home improvement and interior design projects, because I love building things and the satisfaction I get when they're finished.</p>
+        <p class="am-cmt">&lt;!--  <b>Wellness</b>  --&gt;</p>
+        <h2 class="am-h">The True Wealth Is Health</h2>
+        <p>I'm genuinely passionate about <span class="am-hl">wellness</span>, and not in a buzzword way. After two decades in high-growth startups, I've learned the hard way that no launch, title or paycheck matters much if you're running on empty. Burnout is real. I've seen it up close, and I don't wish it on anyone.</p>
+        <p>These days, work-life balance isn't a nice to have, it's the whole game. That means taking mental health as seriously as physical health: yoga, meditation, actually putting the phone down once in a while. It means cooking real food instead of ordering it, moving my body because it feels good, and taking a holistic approach instead of chasing quick fixes.</p>
+        <p>The best things in life really are free. <span class="am-hl">What you're not changing, you're choosing.</span> Trust the journey and enjoy the ride.</p>
+        <p class="am-cmt">&lt;!--  <b>Gratitude</b>  --&gt;</p>
+        <h2 class="am-h">Grateful for the Ride</h2>
+        <p>I've been lucky enough to work alongside some of the smartest, most talented people in Silicon Valley, and I don't take that for granted. To every colleague and every opportunity along the way, thank you. It's shaped how I think and how I create, and I try to stay humble about it, because none of this happens solo.</p>
+        <p><span class="am-hl">Thanks for stopping by!</span><span class="am-caret"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="assets/app.js" defer></script>
 <script src="assets/cube.js" defer></script>
+<script>
+(function(){
+  const overlay = document.getElementById('am-overlay'), link = document.getElementById('about-more-link'),
+        closeBtn = document.getElementById('am-close'), scroll = document.getElementById('am-scroll'), gutter = document.getElementById('am-gutter');
+  let lastFocus = null;
+  function fillGutter(){
+    const h = scroll.scrollHeight, lh = 34, n = Math.ceil(h / lh);
+    gutter.style.height = h + 'px';
+    let out = ''; for (let i = 0; i < n; i++) out += i + '<br>';
+    gutter.innerHTML = out;
+  }
+  /* typewriter: whole modal types top to bottom in order */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const blocks = [...overlay.querySelectorAll('.am-body > *')];
+  if (!reduce) blocks.forEach(el => {
+    (function wrap(node){
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          for (const ch of n.textContent) {
+            if (ch.trim() === '') { frag.appendChild(document.createTextNode(ch)); continue; }
+            const s = document.createElement('span'); s.className = 'ch'; s.textContent = ch; frag.appendChild(s);
+          }
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1 && !n.classList.contains('am-caret')) wrap(n);
+      });
+    })(el);
+  });
+  let played = false, timer = null;
+  function finishAll(){ overlay.querySelectorAll('.ch').forEach(c => c.style.opacity = '1'); overlay.querySelectorAll('.tw-cur').forEach(c => c.remove()); }
+  function armTypewriter(){
+    if (reduce || played) return;
+    played = true;
+    const cur = document.createElement('span'); cur.className = 'am-caret tw-cur';
+    let b = 0;
+    (function next(){
+      if (b >= blocks.length) { cur.remove(); return; }
+      const el = blocks[b++], chars = el.querySelectorAll('.ch');
+      const isHead = el.classList.contains('am-h');
+      const speed = isHead ? 24 : 4, batch = isHead ? 1 : 4;
+      let i = 0;
+      (function step(){
+        if (overlay.hidden) { finishAll(); return; }
+        for (let k = 0; k < batch && i < chars.length; k++) { chars[i].style.opacity = '1'; cur.remove(); chars[i].after(cur); i++; }
+        if (i < chars.length) timer = setTimeout(step, speed);
+        else timer = setTimeout(next, 140);
+      })();
+    })();
+  }
+  function open(e){
+    e.preventDefault(); lastFocus = document.activeElement;
+    overlay.hidden = false; document.body.classList.add('am-lock');
+    requestAnimationFrame(() => { overlay.classList.add('open'); fillGutter(); armTypewriter(); });
+    closeBtn.focus();
+  }
+  function close(){
+    overlay.classList.remove('open'); document.body.classList.remove('am-lock');
+    if (timer) { clearTimeout(timer); timer = null; } finishAll();
+    setTimeout(() => { overlay.hidden = true; scroll.scrollTop = 0; }, 250);
+    if (lastFocus) lastFocus.focus();
+  }
+  link.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) close(); });
+  addEventListener('resize', () => { if (!overlay.hidden) fillGutter(); });
+})();
+</script>
 </body>
 </html>
