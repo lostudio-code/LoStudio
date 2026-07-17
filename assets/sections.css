@@ -156,6 +156,8 @@
 
 .about p.big { font-size: clamp(20px, 2vw, 27px); line-height: 1.5; letter-spacing: -.01em; color: var(--ink); max-width: none; }
 .about p.big b { color: var(--link); font-weight: 600; }
+.about-more { color: var(--link); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgb(217 244 0 / .35); transition: border-color .15s; }
+.about-more:hover { border-color: var(--link); }
 .about .lead { margin-top: 18px; max-width: 56ch; }
 .exp { margin-top: 36px; }
 .exp h4 { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 8px; }

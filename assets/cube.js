@@ -84,6 +84,7 @@
     const Rf = rot(axis, 90 * dir);
     for (const c of layer) { c.M = snap(mul(Rf, c.M)); c.el.style.transform = css(c.M); }
   }
+  const scrambleMoves = [];
   (function scramble(n) {
     let lastAxis = -1;
     for (let i = 0; i < n; i++) {
@@ -92,6 +93,7 @@
       const layerVal = Math.random() < 0.5 ? -1 : 1;
       const dir = Math.random() < 0.5 ? -1 : 1;
       turnInstant(axis, layerVal, dir);
+      scrambleMoves.push([axis, layerVal, dir]);
     }
   })(20);
 
@@ -105,7 +107,7 @@
 
   /* ---------- face turn animation ---------- */
   let busy = false;
-  function turn(axis, layerVal, dir) {
+  function turn(axis, layerVal, dir, onDone) {
     if (busy) return;
     busy = true; spinHold = 90;
     const layer = cubies.filter((c) => coordOf(c.M)[axis] === layerVal);
@@ -125,6 +127,7 @@
           layer[i].el.style.transform = css(layer[i].M);
         }
         busy = false;
+        if (onDone) onDone();
       }
     }
     requestAnimationFrame(frame);
@@ -184,4 +187,17 @@
     new IntersectionObserver((ents) => { cubeVisible = ents[0].isIntersecting; if (cubeVisible) startCube(); }).observe(stageEl);
   }
   startCube();
+
+  /* ---------- auto-solve on load (opt-in via data-solve on the stage) ---------- */
+  if (stageEl.hasAttribute('data-solve') && !reduce) {
+    const undo = scrambleMoves.slice().reverse().map(([a, l, d]) => [a, l, -d]);
+    let i = 0, stopped = false;
+    stageEl.addEventListener('pointerdown', () => { stopped = true; }, { once: true });
+    function next() {
+      if (stopped || i >= undo.length) return;
+      const [a, l, d] = undo[i++];
+      setTimeout(() => { if (!stopped) turn(a, l, d, next); }, 140);
+    }
+    setTimeout(next, 900);
+  }
 })();
