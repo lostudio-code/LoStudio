@@ -239,7 +239,11 @@
 .footer-col h5 { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--d-ink-4); margin-bottom: 14px; }
 .footer-col a, .footer-col p { display: block; font-size: 14px; color: var(--d-ink-3); padding: 5px 0; transition: color .2s; }
 .footer-col a:hover { color: var(--link); }
-.wordmark { position: relative; font-weight: 800; letter-spacing: -.05em; line-height: .8; font-size: clamp(70px, 17vw, 280px); background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.03)); -webkit-background-clip: text; background-clip: text; color: transparent; padding: 18px 0 0; user-select: none; }
+.wordmark { position: relative; padding: 18px 0 0; user-select: none; }
+.wm-stage { position: relative; display: block; }
+.wm-stage img { display: block; width: 100%; height: auto; opacity: 0; transition: none; }
+.wm-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; }
+.wordmark.is-live .wm-stage img { opacity: 0; transition: none; }
 .footer-bottom { position: relative; margin-top: 18px; padding-top: 24px; border-top: 1px solid var(--d-line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12.5px; color: var(--d-ink-4); font-family: var(--mono); letter-spacing: .04em; }
 .to-top { display: inline-flex; align-items: center; gap: 8px; color: var(--d-ink-3); transition: color .2s; }
 .to-top:hover { color: var(--link); }
