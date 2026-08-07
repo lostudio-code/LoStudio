@@ -189,6 +189,7 @@ p { max-width: 75%; }
    ============================================================ */
 .hero { position: relative; min-height: 100vh; overflow: hidden; padding-top: 64px; background: radial-gradient(125% 78% at 50% 16%, #232605 0%, #0e0f0d 58%); color: #fff; display: flex; flex-direction: column; }
 /* deep-space backdrop — sits behind the wave-cube field for Z depth */
+.hero-video { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .hero-space { position: absolute; inset: -6%; z-index: 0; pointer-events: none; background:
   radial-gradient(90% 62% at 70% 8%, rgba(96,84,170,.20), transparent 58%),
   radial-gradient(60% 50% at 26% 16%, rgba(120,110,210,.12), transparent 60%),
@@ -216,7 +217,7 @@ p { max-width: 75%; }
 #waveCubes { position: absolute; left: 0; right: 0; top: 100px; bottom: -100px; z-index: 1; display: block; width: 100%; pointer-events: none; -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 14%, #000 34%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 14%, #000 34%); }
 .hero-bg-video { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: 50% 75%; animation: heroVideoFade 16s cubic-bezier(.45,0,.55,1) infinite; }
 @keyframes heroVideoFade { 0% { opacity: 0; } 35% { opacity: 1; } 65% { opacity: 1; } 100% { opacity: 0; } }
-.hero-veil { position: absolute; inset: 0; z-index: 2; background: radial-gradient(80% 60% at 60% 30%, transparent 40%, rgba(0,0,0,.5) 100%); pointer-events: none; }
+.hero-veil { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 30%, rgba(0,0,0,.55) 100%), radial-gradient(80% 60% at 60% 30%, transparent 40%, rgba(0,0,0,.5) 100%); pointer-events: none; }
 /* Huly ambient bloom */
 .hero-bloom { position: absolute; left: 60%; top: 6%; transform: translate(-50%,-50%); width: 820px; height: 560px; z-index: 1; pointer-events: none; background: radial-gradient(50% 60% at 50% 42%, rgba(217,244,0,.34), rgba(217,244,0,.1) 42%, transparent 70%); filter: blur(22px); }
 
