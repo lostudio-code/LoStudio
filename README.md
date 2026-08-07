@@ -30,7 +30,8 @@ assets/
   projects.js         Portfolio data + mock-screen renderer
   svc-illos.js        Service illustrations
   app.js              Scroll reveals, nav, motion
-  cube.js             Hero animation
+  cube.js             Hero cube animation
+  wordmark-projection.js  Footer wordmark (three.js)
   image-slot.js       Drag-and-drop image placeholder component
   brand/              Logo, favicon, portrait
 uploads/              Project imagery
