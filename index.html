@@ -122,9 +122,10 @@ body.am-lock { overflow: hidden; }
 <main id="main">
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <video class="hero-video" data-depth="0.08" autoplay muted loop playsinline preload="metadata" poster="assets/brand/hero-background.png" aria-hidden="true">
-    <source src="uploads/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4" type="video/mp4" />
+  <video class="hero-video" data-depth="0.08" autoplay muted loop playsinline preload="metadata" poster="assets/brand/hero-poster.jpg" aria-hidden="true">
+    <source src="assets/brand/hero.mp4" type="video/mp4" />
   </video>
+  <script>(function(){var v=document.currentScript.previousElementSibling;if(!v)return;var show=function(){v.classList.add('ready')};if(v.readyState>=3)show();else{v.addEventListener('canplay',show,{once:true});v.addEventListener('loadeddata',show,{once:true});}setTimeout(show,2500);})();</script>
   <div class="hero-space" data-depth="0.1" aria-hidden="true"></div>
   <div class="hero-spot" data-depth="0.4"></div>
   <div class="hero-veil"></div>
@@ -342,7 +343,7 @@ body.am-lock { overflow: hidden; }
 </footer>
 </div>
 
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
 <script src="assets/wordmark-projection.js" defer></script>
 <script src="assets/projects.js" defer></script>
 <script src="assets/svc-illos.js" defer></script>
