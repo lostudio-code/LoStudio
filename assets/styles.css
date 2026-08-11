@@ -187,9 +187,9 @@ p { max-width: 75%; }
 /* ============================================================
    HERO — dark, starfield, editorial
    ============================================================ */
-.hero { position: relative; min-height: 100vh; overflow: hidden; padding-top: 64px; background: radial-gradient(125% 78% at 50% 16%, #232605 0%, #0e0f0d 58%); color: #fff; display: flex; flex-direction: column; }
+.hero { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; padding-top: 64px; background: radial-gradient(125% 78% at 50% 16%, #232605 0%, #0e0f0d 58%); color: #fff; display: flex; flex-direction: column; }
 /* deep-space backdrop — sits behind the wave-cube field for Z depth */
-.hero-video { position: absolute; left: 0; right: 0; top: -20%; height: 140%; z-index: 0; width: 100%; object-fit: cover; pointer-events: none; will-change: transform; }
+.hero-video { position: fixed; left: -3%; top: -3%; width: 106%; height: 106%; z-index: 0; object-fit: cover; pointer-events: none; will-change: transform; }
 .hero-space { position: absolute; inset: -6%; z-index: 0; pointer-events: none; background:
   radial-gradient(90% 62% at 70% 8%, rgba(96,84,170,.20), transparent 58%),
   radial-gradient(60% 50% at 26% 16%, rgba(120,110,210,.12), transparent 60%),
@@ -212,7 +212,12 @@ p { max-width: 75%; }
   background-size: 620px 620px; opacity: .85; animation: spaceDriftNear 70s linear infinite; }
 @keyframes spaceDriftFar { to { background-position: 360px 180px; } }
 @keyframes spaceDriftNear { to { background-position: -620px 310px; } }
-@media (prefers-reduced-motion: reduce){ .hero-space::before, .hero-space::after { animation: none; } }
+@media (prefers-reduced-motion: reduce){ .hero-space::before, .hero-space::after { animation: none; } .hero-video { display: none; } .hero { background-image: url('brand/hero-background.png'); background-size: cover; background-position: center; } }
+/* Touch/small screens: swap the fixed video for its poster — iOS Safari repaints fixed video badly against the collapsing URL bar, and a full-bleed autoplay video is a real data + battery cost on cellular. */
+@media (max-width: 900px), (hover: none) and (pointer: coarse) {
+  .hero-video { display: none; }
+  .hero { background-image: url('brand/hero-background.png'); background-size: cover; background-position: center; }
+}
 .hero-veil { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 30%, rgba(0,0,0,.55) 100%), radial-gradient(80% 60% at 60% 30%, transparent 40%, rgba(0,0,0,.5) 100%); pointer-events: none; }
 /* Huly ambient bloom */
 .hero-bloom { position: absolute; left: 60%; top: 6%; transform: translate(-50%,-50%); width: 820px; height: 560px; z-index: 1; pointer-events: none; background: radial-gradient(50% 60% at 50% 42%, rgba(217,244,0,.34), rgba(217,244,0,.1) 42%, transparent 70%); filter: blur(22px); }
