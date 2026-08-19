@@ -31,8 +31,10 @@ assets/
   svc-illos.js        Service illustrations
   app.js              Scroll reveals, nav, motion
   cube.js             Hero cube animation
+  butterfly.js        Butterfly perched on the hero CTA (three.js)
+  cursor-spray.js     Hero cursor trail (three.js, desktop pointers only)
   wordmark-projection.js  Footer wordmark (three.js)
-  brand/              Logo, favicon, portrait
+  brand/              Logo, favicon, portrait, hero video + poster
 uploads/              Project imagery
 ```
 
