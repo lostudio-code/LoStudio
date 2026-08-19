@@ -119,8 +119,44 @@
 
     var s = parseFloat(host.getAttribute('data-bf-scale')) || 1;
     bf.scale.setScalar(s);
-    var perch = { x: -102, y: -H / 2 + 5 + 8 * s };
+    /* the arc must stay inside whatever clips this button (hero / footer both use overflow:hidden) */
+    function clipRect(el) {
+      var n = el.parentElement;
+      while (n && n !== document.documentElement) {
+        var st = getComputedStyle(n);
+        if (st.overflow !== 'visible' || st.overflowX !== 'visible') return n.getBoundingClientRect();
+        n = n.parentElement;
+      }
+      return { left: 0, right: window.innerWidth, top: 0 };
+    }
+    var flip = false;
+    var perch = { x: -102, y: 0 };
     var exit = { x: 118, y: 92 };
+    var liftOut = 70, liftIn = 80;
+    function place() {
+      var hr = host.getBoundingClientRect(), cb = clipRect(host);
+      /* horizontal: fly the other way when there is no room to the right */
+      flip = (hr.left - 34 + W) > (cb.right - 4) && (hr.right + 34 - W) >= (cb.left - 4);
+      canvas.style.left = flip ? 'auto' : '-34px';
+      canvas.style.right = flip ? '-34px' : 'auto';
+      perch.x = flip ? 102 : -102;
+      /* vertical: never let the canvas reach above the clipping ancestor */
+      H = Math.max(130, Math.min(280, Math.floor(hr.top + 6 - cb.top)));
+      canvas.style.height = H + 'px';
+      renderer.setSize(W, H, false);
+      cam.top = H / 2; cam.bottom = -H / 2; cam.updateProjectionMatrix();
+      var margin = 38 * s + 8;
+      var limit = H / 2 - margin;
+      perch.y = -H / 2 + 5 + 8 * s;
+      exit.x = (flip ? -118 : 118);
+      exit.y = Math.min(92, limit);
+      var maxLift = Math.max(12, limit - perch.y - (exit.y - perch.y) * 0.1);
+      liftOut = Math.min(70, maxLift);
+      liftIn = Math.min(80, maxLift);
+    }
+    place();
+    var rt;
+    window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(place, 200); });
     bf.position.set(perch.x, perch.y, 0);
 
     var state = 'perched', t0 = 0, returnAt = 0, hovering = false;
@@ -157,11 +193,12 @@
         var out = state === 'leaving';
         var p = Math.min(1, (now - t0) / (out ? DUR_OUT : DUR_IN));
         var e = ease(p);
-        pos = out ? path(e, perch, exit, 70) : path(e, exit, perch, 80);
+        pos = out ? path(e, perch, exit, liftOut) : path(e, exit, perch, liftIn);
         bf.position.x = pos.x + Math.sin(el * 7) * 3;
+        var fx = flip ? -1 : 1;
         bf.position.y = pos.y + Math.cos(el * 5.5) * 2.5;
         flap = 0.95 + Math.sin(el * 26) * 0.55;
-        tilt = (out ? -0.5 : 0.42) + Math.sin(el * 6) * 0.12;
+        tilt = ((out ? -0.5 : 0.42) + Math.sin(el * 6) * 0.12) * fx;
         op = out ? (p > 0.52 ? Math.max(0, 1 - (p - 0.52) / 0.4) : 1) : (p < 0.34 ? p / 0.34 : 1);
         if (p >= 1) {
           if (out) { state = 'gone'; returnAt = now + DELAY; }
