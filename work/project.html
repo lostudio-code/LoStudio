@@ -159,7 +159,7 @@
       <canvas id="csStars"></canvas>
       <div class="cs-glow" style="background:radial-gradient(circle, #D9F40040, transparent 62%)"></div>
       <div class="wrap" style="position:relative;z-index:3">
-        <a class="cs-back" href="../index.html#work">← Back to work</a>
+        <a class="cs-back" href="${(window.LO.brandOf(P.company) ? 'brand.html?id=' + window.LO.brandOf(P.company).id : '../index.html#work')}">← Back to ${window.LO.brandOf(P.company) ? P.company : 'work'}</a>
         <div class="eyebrow on-dark" style="color:var(--d-ink-2)">${P.company} · ${P.cat}</div>
         <h1 class="cs-title gradient-ink reveal" data-d="1">${P.summaryTitle || P.title}</h1>
         <p class="cs-sum reveal" data-d="2">${P.summary}</p>
@@ -186,6 +186,12 @@
           <span class="vplay" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           <span class="cap">Watch the film</span>
         </div>
+      </div>
+    </section>` : ''}
+
+    ${P.embed ? `<section class="cs-stage" aria-label="Presentation">
+      <div class="wrap">
+        <div class="cs-embed reveal"><iframe src="${P.embed}" title="${P.company} ${P.title}" loading="lazy" allowfullscreen></iframe></div>
       </div>
     </section>` : ''}
 
