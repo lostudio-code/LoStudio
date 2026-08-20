@@ -343,12 +343,21 @@ p { max-width: 75%; }
 .pcard:hover::after { opacity: 1; animation: beam-spin 2.6s linear infinite; }
 .pcard-media { position: relative; aspect-ratio: 16/10.5; overflow: hidden; }
 .pcard-media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
+.cs-embed { position: relative; aspect-ratio: 16/9; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: #0b0b0d; box-shadow: 0 40px 80px -40px rgba(0,0,0,.7); }
+.cs-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (max-width: 620px){ .cs-embed { aspect-ratio: 4/3; } }
+.pcard[href*="projectdiscovery-rsa"] .pcard-media { background: #0a0a0c; }
+.pcard[href*="projectdiscovery-rsa"] .pcard-media img { object-fit: cover; object-position: left center; }
+.pcard[href*="launchdarkly-bumpers"] .pcard-media { background: #0a0a0c; }
+.pcard[href*="launchdarkly-bumpers"] .pcard-media img { object-fit: cover; object-position: center center; }
+.pcard[href*="launchdarkly-academy-trailer"] .pcard-media img { object-position: center 38%; }
 .pcard[href*="projectdiscovery-brand"] .pcard-media { background: #0b0e16; }
 .pcard[href*="projectdiscovery-brand"] .pcard-media img { object-fit: cover; object-position: center center; }
-.pcard[href*="projectdiscovery-product"] .pcard-media img { object-position: center 38%; }
+.pcard[href*="projectdiscovery-product"] .pcard-media img { object-position: center 35%; transform: scale(1.14); }
+.pcard[href*="projectdiscovery-product"]:hover .pcard-media img { transform: scale(1.19); }
 .pcard[href*="projectdiscovery-website"] .pcard-media { background: #0a0a0c; }
-.pcard[href*="projectdiscovery-website"] .pcard-media img { object-fit: cover; object-position: center center; transform: scale(1.12); }
-.pcard[href*="projectdiscovery-website"]:hover .pcard-media img { transform: scale(1.17); }
+.pcard[href*="projectdiscovery-website"] .pcard-media img { object-fit: cover; object-position: 58% 48%; transform: scale(1.32); }
+.pcard[href*="projectdiscovery-website"]:hover .pcard-media img { transform: scale(1.38); }
 .pcard:hover .pcard-media img { transform: scale(1.05); }
 .pcard-media .mk { transition: transform .5s cubic-bezier(.2,.7,.3,1); }
 .pcard:hover .pcard-media .mk { transform: scale(1.03); }
@@ -361,6 +370,33 @@ p { max-width: 75%; }
 .pcard:hover .arrow svg { stroke: var(--link-ink); }
 .pcard .cat-pill { position: absolute; top: 12px; left: 12px; z-index: 3; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #fff; padding: 5px 10px; border-radius: 999px; background: rgba(8,12,22,.55); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.16); }
 .pcard.hide { display: none; }
+.pcard .cat-pills { position: absolute; top: 12px; left: 12px; z-index: 3; display: flex; flex-wrap: wrap; gap: 6px; }
+.pcard .cat-pills .cat-pill { position: static; top: auto; left: auto; }
+
+/* ---------- brand feature cards (homepage) ---------- */
+.brand-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 34px; }
+.pcard.bcard .pcard-media { aspect-ratio: 16/9.6; }
+.pcard.bcard .pcard-media img { object-position: center center; }
+.pcard.bcard .pcard-body { padding: 20px 22px 22px; }
+.pcard.bcard h4 { font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -.03em; margin-top: 8px; }
+.pcard.bcard .bcard-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.pcard.bcard .bcard-tags span { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-3); }
+@media (max-width: 860px){ .brand-grid { grid-template-columns: 1fr; } }
+
+/* ---------- brand index page ---------- */
+.bp-hero { position: relative; padding: 120px 0 46px; overflow: hidden; background: radial-gradient(120% 90% at 50% -20%, color-mix(in oklab, var(--ba) 22%, #141414) 0%, #141414 62%); color: #fff; }
+.bp-title { font-size: clamp(42px, 7vw, 86px); font-weight: 800; letter-spacing: -.045em; line-height: .96; margin-top: 16px; }
+.bp-sum { margin-top: 20px; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: var(--d-ink-2); max-width: 62ch; text-wrap: pretty; }
+.bp-meta { display: flex; flex-wrap: wrap; gap: 18px 46px; margin-top: 34px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12); }
+.bp-meta .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--d-ink-3); }
+.bp-meta .v { margin-top: 7px; font-size: 15px; color: #fff; }
+.bp-work { padding: 46px 0 96px; background: var(--bg); }
+.bp-work .filters { margin-top: 0; }
+.bp-other { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 58px; padding-top: 28px; border-top: 1px solid var(--line); }
+.bp-other .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-4); margin-right: 8px; }
+.bp-other a { font-size: 15px; color: var(--ink-2); padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line-2); transition: border-color .3s, color .3s; }
+.bp-other a:hover { color: var(--ink); border-color: var(--d-ink-3); }
+@media (max-width: 620px){ .bp-hero { padding: 96px 0 38px; } .bp-meta { gap: 16px 30px; } }
 
 /* ============================================================
    BRANDED MOCK SCREENS
