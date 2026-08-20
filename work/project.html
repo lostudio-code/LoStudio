@@ -138,7 +138,7 @@
   const videos = vidItems.map((g, i) => {
     const vid = window.LO.ytId(g.yt);
     return `<div class="cs-video reveal" data-d="${(i%3)+1}"${vid ? ` data-yt="${vid}" role="button" tabindex="0" aria-label="Play: ${g.cap}"` : ''}>
-      ${g.img ? `<img src="${asset(g.img)}" alt="${g.cap}" loading="lazy" />` : ''}
+      ${g.img ? `<img src="${asset(g.img)}" alt="${g.cap}" loading="lazy" decoding="async" />` : ''}
       ${vid ? `<span class="vplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>` : ''}
       <span class="cap">${g.cap}</span>
     </div>`;
@@ -182,7 +182,7 @@
     ${P.heroVideo ? `<section class="cs-stage" aria-label="Featured motion graphics">
       <div class="wrap">
         <div class="cs-video cs-stage-video reveal" data-yt="${window.LO.ytId(P.heroVideo)}" role="button" tabindex="0" aria-label="Play: ${P.company} ${P.title}">
-          <img src="${asset(P.poster || P.hero)}" alt="${P.company} ${P.title}" />
+          <img src="${asset(P.poster || P.hero)}" alt="${P.company} ${P.title}" decoding="async" fetchpriority="high" />
           <span class="vplay" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           <span class="cap">Watch the film</span>
         </div>
