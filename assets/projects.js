@@ -11,7 +11,7 @@
   const PROJECTS = [
     {
       id: 'projectdiscovery-logo', company: 'ProjectDiscovery', title: 'Logo Evolution',
-      cat: 'Brand', kind: 'Identity', year: '2023', accent: PD, theme: 'brand', size: 'sm',
+      cat: 'Brand', kind: 'Identity', year: '2024', accent: PD, theme: 'brand', size: 'sm',
       hero: 'uploads/Logo_Evolution_Thumbnail.webp',
       summary: 'Redrew the ProjectDiscovery logo from the mark up, moving from an inherited wordmark to a purpose-built symbol and lockup. I started with the logo I inherited when I joined, ran a wide set of explorations, and worked with leadership to land on a new mark and logotype lockup with defined clear space and proportions.',
       role: 'Brand Designer', scope: 'Logo mark \u00b7 Logotype \u00b7 Lockup', outcome: 'A mark of its own',
@@ -20,14 +20,104 @@
       galleryLayout: 'grid',
       gallery: [
         {cap:'Original logo', theme:'brand', img:'uploads/Logo_Evolution_1.webp'},
-        {cap:'Lockup exploration', theme:'brand', img:'uploads/Logo_Evolution_2.webp'},
-        {cap:'Logo mark', theme:'brand', img:'uploads/Logo_Evolution_Thumbnail.webp'},
+        {cap:'Lots of Explorations', theme:'brand', img:'uploads/Logo_Evolution_2.webp'},
+        {cap:'Final logo mark', theme:'brand', img:'uploads/Logo_Evolution_Thumbnail.webp'},
         {cap:'Final primary logo lockup', theme:'brand', img:'uploads/Logo_Evolution_3.webp'}
       ]
     },
     {
+      id: 'projectdiscovery-website', company: 'ProjectDiscovery', title: 'Web Design',
+      cat: 'Web Design', kind: 'Digital', year: '2024', accent: PD, theme: 'web', size: 'lg',
+      hero: 'uploads/PD-Web-Thumb-new.webp', heroPos: 'center top',
+      summary: 'Led all web design as ProjectDiscovery grew from open-source security tooling into an enterprise vulnerability platform, building the design system, UX, and performance that powered the growth. The team had already earned deep trust in the security community with open-source tools like Nuclei, so the real challenge was carrying that credibility into a commercial, enterprise-grade platform without losing the developers who built the brand. I owned web design from start to finish. The result tied those open-source roots to a polished enterprise story.',
+      role: 'Principal Designer', scope: 'Web Design · UI/UX', outcome: '$3M+ ARR · 100k+ stars',
+      body: [],
+      stats: [{n:'100k+',l:'GitHub stars'},{n:'$3M+',l:'ARR'},{n:'Series A',l:'Stage'},{n:'1',l:'Design system'}],
+      galleryLayout: 'grid',
+      gallery: [
+        {cap:'Homepage', theme:'web', img:'uploads/Website-Homepage.webp'},
+        {cap:'Vulnerability management', theme:'web', img:'uploads/Website-Vulnerability-Management.webp'},
+        {cap:'Pricing', theme:'web', img:'uploads/Website-Pricing.webp'},
+        {cap:'Enterprise', theme:'web', img:'uploads/Website-Enterprise.webp'},
+        {cap:'Launch week', theme:'web', img:'uploads/Website-Launch-Week.webp'},
+        {cap:'Case study', theme:'web', img:'uploads/Website-Case-Study-50978f6a.webp'},
+        {cap:'Platform menu', theme:'web', span:'full', img:'uploads/Menu - Platform.webp'}
+      ]
+    },
+    {
+      id: 'projectdiscovery-hss', company: 'ProjectDiscovery', title: 'HSS Event',
+      cat: 'Event', cats: ['Event', 'Video'], kind: 'Experiential', year: '2024', accent: PD, theme: 'event', size: 'sm',
+      hero: 'uploads/HSS-Thumbnail.webp',
+      summary: 'Branded the Hardly Strictly Security event from start to finish, including identity, environmental graphics, and collateral for ProjectDiscovery’s community gathering. A fully online conference for the security community, it needed an identity that felt as credible and irreverent as its audience. I led creative direction across the production and owned vendor selection and management, while keeping all pre- and post-conference video editing in-house — saving the company thousands and keeping every frame on brand.',
+      role: 'Principal Designer', scope: 'Identity · Web Design · Video Editing', outcome: 'Memorable',
+      body: [],
+      stats: [{n:'End-to-end',l:'Event brand'},{n:'Virtual',l:'Conference'},{n:'Community',l:'First'}],
+      gallery: [
+        {cap:'Speaker edit', theme:'video', yt:'gCAbJ9i4dXY', img:'uploads/yt-gCAbJ9i4dXY.jpg'},
+        {cap:'Confirmation email', theme:'event', span:'half tall', img:'uploads/HSS-Email-Confirmation.webp'},
+        {cap:'Social media', theme:'event', span:'half', img:'uploads/HSS-PJ-Metz.webp'},
+        {cap:'Photography', theme:'event', span:'half tall', img:'uploads/HSS-Brendan.webp'},
+        {cap:'Event fuel', theme:'event', span:'half tall', img:'uploads/HSS-Waffle.webp'},
+        {cap:'Video production', theme:'event', span:'half tall', img:'uploads/HSS-MichaelSam.webp'}
+      ]
+    },
+    {
+      id: 'projectdiscovery-social', company: 'ProjectDiscovery', title: 'Social Media',
+      cat: 'Brand', kind: 'Social', year: '2025', accent: PD, theme: 'social', size: 'sm',
+      hero: 'uploads/Blog-Nuclei.webp',
+      summary: 'Designed the paid and organic social program that fed ProjectDiscovery\u2019s funnel, with ads and cards built to send people to the website, the blog, and campaign landing pages. Each piece had a destination behind it: customer proof pointing at case studies, product news pointing at feature pages, and technical posts pointing at the blog. Working from the brand system meant the whole feed read as one voice while every unit stayed measurable on its own.',
+      role: 'Principal Designer', scope: 'Paid social \u00b7 Organic \u00b7 Campaigns', outcome: 'Traffic driver',
+      body: [],
+      stats: [{n:'Paid + organic',l:'Channels'},{n:'Web \u00b7 Blog \u00b7 LP',l:'Destinations'},{n:'On-system',l:'Every unit'}],
+      galleryLayout: 'grid',
+      gallery: [
+        {cap:'Playtika webinar', theme:'social', img:'uploads/pd-playtika-social.webp'},
+        {cap:'Elastic testimonial campaign', theme:'social', img:'uploads/ld-testimonial-elastic.webp'},
+        {cap:'RSA Winner 2025', theme:'social', img:'uploads/github_stars_gif-1782577183700.gif'},
+        {cap:'CVE alert template', theme:'social', img:'uploads/CVE_Template.webp'},
+        {cap:'AI-powered Nuclei template generation', theme:'social', img:'uploads/Blog-Nuclei.webp'},
+        {cap:'Website share card', theme:'social', img:'uploads/Website_Share_Card.webp'},
+        {cap:'Pioneers Ambassador Program', theme:'social', img:'uploads/Pioneers_Program.webp'},
+        {cap:'Hardly Strictly Security ad', theme:'social', img:'uploads/HSS_Event_Ad.webp'}
+      ]
+    },
+    {
+      id: 'projectdiscovery-email', company: 'ProjectDiscovery', title: 'Email Design',
+      cat: 'Web Design', kind: 'Lifecycle', year: '2025', accent: PD, theme: 'web', size: 'sm',
+      hero: 'uploads/Email_Thumbnail.webp',
+      summary: 'Designed the product emails that carried ProjectDiscovery\u2019s scan results into the inbox. A weekly report summarized exposure across a customer\u2019s assets, and a vulnerability alert flagged new findings as they landed. Both had to survive email clients while still reading like the product, so the layouts stayed simple and the hierarchy did the work: severity first, then the finding, then a clear route back into the platform.',
+      role: 'Principal Designer', scope: 'Lifecycle email \u00b7 Templates', outcome: 'Findings in the inbox',
+      body: [],
+      stats: [{n:'Weekly',l:'Report'},{n:'Real-time',l:'Alerts'},{n:'On-system',l:'Templates'}],
+      galleryLayout: 'grid',
+      gallery: [
+        {cap:'Weekly report email', theme:'web', img:'uploads/Email-Weekly-Report.webp'},
+        {cap:'Vulnerability scan email', theme:'web', img:'uploads/Email-Vulnerability-Scan.webp'}
+      ]
+    },
+    {
+      id: 'projectdiscovery-product', company: 'ProjectDiscovery', title: 'Product UI',
+      cat: 'Product UI', kind: 'Product', year: '2025', accent: PD, theme: 'product', size: 'sm',
+      hero: 'uploads/PD-Product-Thumb.webp',
+      summary: 'Designed the core platform UI for a ProjectDiscovery vulnerability platform, turning complex data into clear, scannable, actionable interfaces. Security platforms tend to drown users in data, so the goal was to surface what matters, like exposures, severity, and the next action, without overwhelming anyone. I designed the dashboard, findings, asset inventory, and scan-configuration flows, with reusable components that scaled across the product.',
+      role: 'Product Designer', scope: 'Dashboards · Flows · Components', outcome: 'Clearer at a glance',
+      body: [],
+      stats: [{n:'$1M+',l:'Platform ARR'},{n:'Clarity',l:'First principle'},{n:'Scalable',l:'Components'}],
+      galleryLayout: 'grid',
+      gallery: [
+        {cap:'Search · dark', theme:'product', img:'uploads/vulnerability-sh-ssearch-darkmode.webp'},
+        {cap:'Search · light', theme:'product', img:'uploads/vulnerability-sh-search-lightmode.webp'},
+        {cap:'Products · dark', theme:'product', img:'uploads/vulnerability-sh-products-darkmode.webp'},
+        {cap:'Products · light', theme:'product', img:'uploads/vulnerability-sh-products-lightmode.webp'},
+        {cap:'Stats · dark', theme:'product', img:'uploads/vulnerability-sh-stats-darkmode.webp'},
+        {cap:'Stats · light', theme:'product', img:'uploads/vulnerability-sh-stats-lightmode.webp'},
+        {cap:'Library · dark', theme:'product', img:'uploads/vulnerability-sh-library-darkmode.webp'},
+        {cap:'Library · light', theme:'product', img:'uploads/vulnerability-sh-library-lightmode.webp'}
+      ]
+    },
+    {
       id: 'projectdiscovery-brand', company: 'ProjectDiscovery', title: 'Brand Guidelines',
-      cat: 'Brand', kind: 'Identity', year: '2023', accent: PD, theme: 'brand', size: 'sm',
+      cat: 'Brand', kind: 'Identity', year: '2025', accent: PD, theme: 'brand', size: 'sm',
       hero: 'uploads/ProjectDiscovery_thumbnail-13c39050.webp',
       summary: 'Crafted the visual identity that carried ProjectDiscovery from open-source darling to enterprise-trusted brand, with a logo system, color, type, and motifs rooted in the security community. As the company commercialized, it needed to signal enterprise credibility while keeping its hacker-community authenticity intact. I built the full system, including logo, color, typography, iconography, and motion principles, all documented so marketing and product could apply it quickly and consistently.',
       role: 'Brand Designer', scope: 'Logo · System · Guidelines', outcome: 'Unified brand',
@@ -64,70 +154,8 @@
       ]
     },
     {
-      id: 'projectdiscovery-hss', company: 'ProjectDiscovery', title: 'HSS Event',
-      cat: 'Event', cats: ['Event', 'Video'], kind: 'Experiential', year: '2023', accent: PD, theme: 'event', size: 'sm',
-      hero: 'uploads/HSS-Thumbnail.webp',
-      summary: 'Branded the Hardly Strictly Security event from start to finish, including identity, environmental graphics, and collateral for ProjectDiscovery’s community gathering. A fully online conference for the security community, it needed an identity that felt as credible and irreverent as its audience. I led creative direction across the production and owned vendor selection and management, while keeping all pre- and post-conference video editing in-house — saving the company thousands and keeping every frame on brand.',
-      role: 'Principal Designer', scope: 'Identity · Web Design · Video Editing', outcome: 'Memorable',
-      body: [],
-      stats: [{n:'End-to-end',l:'Event brand'},{n:'Virtual',l:'Conference'},{n:'Community',l:'First'}],
-      gallery: [
-        {cap:'Speaker edit', theme:'video', yt:'gCAbJ9i4dXY', img:'uploads/yt-gCAbJ9i4dXY.jpg'},
-        {cap:'Confirmation email', theme:'event', span:'half tall', img:'uploads/HSS-Email-Confirmation.webp'},
-        {cap:'Social media', theme:'event', span:'half', img:'uploads/HSS-PJ-Metz.webp'},
-        {cap:'Photography', theme:'event', span:'half tall', img:'uploads/HSS-Brendan.webp'},
-        {cap:'Event fuel', theme:'event', span:'half tall', img:'uploads/HSS-Waffle.webp'},
-        {cap:'Video production', theme:'event', span:'half tall', img:'uploads/HSS-MichaelSam.webp'}
-      ]
-    },
-    {
-      id: 'projectdiscovery-website', company: 'ProjectDiscovery', title: 'Web Design',
-      cat: 'Web Design', kind: 'Digital', year: '2024', accent: PD, theme: 'web', size: 'lg',
-      hero: 'uploads/PD-Web-Thumb-new.webp', heroPos: 'center top',
-      summary: 'Led all web design as ProjectDiscovery grew from open-source security tooling into an enterprise vulnerability platform, building the design system, UX, and performance that powered the growth. The team had already earned deep trust in the security community with open-source tools like Nuclei, so the real challenge was carrying that credibility into a commercial, enterprise-grade platform without losing the developers who built the brand. I owned web design from start to finish. The result tied those open-source roots to a polished enterprise story.',
-      role: 'Principal Designer', scope: 'Web Design · UI/UX', outcome: '$3M+ ARR · 100k+ stars',
-      body: [],
-      stats: [{n:'100k+',l:'GitHub stars'},{n:'$3M+',l:'ARR'},{n:'Series A',l:'Stage'},{n:'1',l:'Design system'}],
-      galleryLayout: 'grid',
-      gallery: [
-        {cap:'Homepage', theme:'web', img:'uploads/Website-Homepage.webp'},
-        {cap:'Vulnerability management', theme:'web', img:'uploads/Website-Vulnerability-Management.webp'},
-        {cap:'Pricing', theme:'web', img:'uploads/Website-Pricing.webp'},
-        {cap:'Enterprise', theme:'web', img:'uploads/Website-Enterprise.webp'},
-        {cap:'Launch week', theme:'web', img:'uploads/Website-Launch-Week.webp'},
-        {cap:'Case study', theme:'web', img:'uploads/Website-Case-Study-50978f6a.webp'},
-        {cap:'Weekly report email', theme:'web', img:'uploads/Email-Weekly-Report.webp'},
-        {cap:'Vulnerability scan email', theme:'web', img:'uploads/Email-Vulnerability-Scan.webp'},
-        {cap:'Platform menu', theme:'web', span:'full', img:'uploads/Menu - Platform.webp'},
-        {cap:'Playtika social card', theme:'social', img:'uploads/pd-playtika-social.webp'},
-        {cap:'Elastic testimonial campaign', theme:'social', img:'uploads/ld-testimonial-elastic.webp'},
-        {cap:'RSA Winner 2025', theme:'social', img:'uploads/github_stars_gif-1782577183700.gif'},
-        {cap:'AI-powered Nuclei template generation', theme:'social', img:'uploads/Blog-Nuclei.webp'}
-      ]
-    },
-    {
-      id: 'projectdiscovery-product', company: 'ProjectDiscovery', title: 'Product UI',
-      cat: 'Product UI', kind: 'Product', year: '2024', accent: PD, theme: 'product', size: 'sm',
-      hero: 'uploads/PD-Product-Thumb.webp',
-      summary: 'Designed the core platform UI for a ProjectDiscovery vulnerability platform, turning complex data into clear, scannable, actionable interfaces. Security platforms tend to drown users in data, so the goal was to surface what matters, like exposures, severity, and the next action, without overwhelming anyone. I designed the dashboard, findings, asset inventory, and scan-configuration flows, with reusable components that scaled across the product.',
-      role: 'Product Designer', scope: 'Dashboards · Flows · Components', outcome: 'Clearer at a glance',
-      body: [],
-      stats: [{n:'$1M+',l:'Platform ARR'},{n:'Clarity',l:'First principle'},{n:'Scalable',l:'Components'}],
-      galleryLayout: 'grid',
-      gallery: [
-        {cap:'Search · dark', theme:'product', img:'uploads/vulnerability-sh-ssearch-darkmode.webp'},
-        {cap:'Search · light', theme:'product', img:'uploads/vulnerability-sh-search-lightmode.webp'},
-        {cap:'Products · dark', theme:'product', img:'uploads/vulnerability-sh-products-darkmode.webp'},
-        {cap:'Products · light', theme:'product', img:'uploads/vulnerability-sh-products-lightmode.webp'},
-        {cap:'Stats · dark', theme:'product', img:'uploads/vulnerability-sh-stats-darkmode.webp'},
-        {cap:'Stats · light', theme:'product', img:'uploads/vulnerability-sh-stats-lightmode.webp'},
-        {cap:'Library · dark', theme:'product', img:'uploads/vulnerability-sh-library-darkmode.webp'},
-        {cap:'Library · light', theme:'product', img:'uploads/vulnerability-sh-library-lightmode.webp'}
-      ]
-    },
-    {
       id: 'projectdiscovery-rsa', company: 'ProjectDiscovery', title: 'RSA Presentation',
-      cat: 'Brand', cats: ['Brand', 'Event'], kind: 'Presentation', year: '2025', accent: PD, theme: 'brand', size: 'sm',
+      cat: 'Brand', kind: 'Presentation', year: '2025', accent: PD, theme: 'brand', size: 'sm',
       hero: 'uploads/Presentation_thumbnail.webp',
       embed: 'https://embed.figma.com/slides/2HFscVwqzULcTpuilJBe3f/RSA-Presentation?node-id=0-1&embed-host=share',
       summary: 'Designed the presentation ProjectDiscovery took to RSA, where the company won. The talk, \u201cVulnerability scanning is broken,\u201d needed to hold a conference stage: a clear argument, brand-true visuals, and slides that read from the back of the room. I built the deck end to end, from narrative structure and typography to the imagery and product moments carrying each point.',
@@ -371,7 +399,7 @@
     return /^[\w-]{11}$/.test(String(v).trim()) ? String(v).trim() : '';
   }
 
-  const IMG_DIMS = {"uploads/academy-social-1200x1200.webp":[1200,1200],"uploads/1774327958129.jpg":[800,533],"uploads/Presentation_thumbnail.webp":[1920,1080],"uploads/Logo_Evolution_Thumbnail.webp":[1920,1080],"uploads/Logo_Evolution_1.webp":[1920,1080],"uploads/Logo_Evolution_2.webp":[1920,1080],"uploads/Logo_Evolution_3.webp":[1920,1080],"uploads/PD-Brand-Thumb.webp":[1600,900],"uploads/PD-Web-Thumb-new.webp":[721,444],"uploads/Brand Guidelines - 18.webp":[1600,900],"uploads/Menu - Platform.webp":[1440,460],"uploads/pd-playtika-social.webp":[1200,627],"uploads/vulnerability-sh-stats-lightmode.webp":[1484,758],"uploads/Brand Guidelines - 1.webp":[1600,900],"uploads/Brand Guidelines - 8.webp":[1600,900],"uploads/ld-testimonial-elastic.webp":[1200,628],"uploads/Brand Guidelines - 14.webp":[1600,900],"uploads/Brand Guidelines - 9.webp":[1600,900],"uploads/Brand Guidelines - 24.webp":[1600,900],"uploads/Brand Guidelines - 5.webp":[1600,900],"uploads/Brand Guidelines - 23.webp":[1600,900],"uploads/HSS-Brendan.webp":[1600,1067],"uploads/Brand Guidelines - 15.webp":[1600,900],"uploads/vulnerability-sh-products-lightmode.webp":[1484,758],"uploads/14_Test_Innovations.webp":[1068,549],"uploads/Brand Guidelines - 3.webp":[1600,900],"uploads/Brand Guidelines - 22.webp":[1600,900],"uploads/12_Feature_Workflows-34ac2b80.webp":[1088,549],"uploads/19_Discover_when_a_Flag.webp":[1068,549],"uploads/18_Search_for_References.webp":[1068,549],"uploads/1_Release_Confidentialy-84a07bcb.webp":[1069,656],"uploads/Brand Guidelines - 11.webp":[1600,900],"uploads/HSS-Email-Confirmation.webp":[640,998],"uploads/HSS-Waffle.webp":[1600,1067],"uploads/HSS-Thumbnail.webp":[1600,900],"uploads/Brand Guidelines - 12.webp":[1600,900],"uploads/vulnerability-sh-search-lightmode.webp":[1484,758],"uploads/16_App_Modernization.webp":[1068,549],"uploads/Brand Guidelines - 17.webp":[1600,900],"uploads/17_Filter_by_Repository.webp":[1068,549],"uploads/Galaxy-Thumb.webp":[1600,901],"uploads/Brand Guidelines - 10.webp":[1600,900],"uploads/13_Platform_Architecture-025f974d.webp":[1068,549],"uploads/Data_Dog.webp":[1600,900],"uploads/Brand Guidelines - 7.webp":[1600,900],"uploads/6_APIs-7a0befba.webp":[1068,549],"uploads/Brand Guidelines - 16.webp":[1600,900],"uploads/Brand Guidelines - 20.webp":[1600,900],"uploads/5_SDKs-b6440c8b.webp":[1068,549],"uploads/vulnerability-sh-library-lightmode.webp":[1484,758],"uploads/21_Advanced_Targeting.webp":[1068,549],"uploads/Brand Guidelines - 13.webp":[1600,900],"uploads/7_Integrations-70d5edb0.webp":[1068,549],"uploads/11_Feature_Flags-2cca8e07.webp":[1068,549],"uploads/Brand Guidelines - 2.webp":[1600,900],"uploads/22_Technical_Debt_Management.webp":[1068,549],"uploads/Brand Guidelines - 26.webp":[1600,900],"uploads/Brand Guidelines - 4.webp":[1600,900],"uploads/9_Experimentation-fd81e67a.webp":[1068,549],"uploads/Trajectory Nano Series Week 1 of 4_ Making Releases Boring in the Enterprise.webp":[1600,900],"uploads/8_Code_References-023d9e30.webp":[1068,549],"uploads/Uberflip_Explainer.webp":[1600,900],"uploads/20_Workflow_Automation.webp":[1068,549],"uploads/Email-Vulnerability-Scan.webp":[1280,1482],"uploads/vulnerability-sh-products-darkmode.webp":[1484,758],"uploads/FFT_ DevOps at Speed with Feature Flags.webp":[1600,900],"uploads/FFT_Deploying rapidly for continuous integration with Heidi Waterhouse.webp":[1600,900],"uploads/10_Data_Export-d7ece312.webp":[1068,549],"uploads/Webinars_Dynatrace Webinar.webp":[1600,900],"uploads/Brand Guidelines - 6.webp":[1600,900],"uploads/Brand Guidelines - 21.webp":[1600,900],"uploads/FFT_How Atlassian Does DevOps Webinar - Building Products.webp":[1600,900],"uploads/23_Security_and_Administration.webp":[1068,549],"uploads/3_Safely_Migrate_Systems-6027ae61.webp":[1068,656],"uploads/Uberflip_Code_Refs.webp":[1600,900],"uploads/2_Improve_Reliability-3782a307.webp":[1068,656],"uploads/PD-Product-Thumb.webp":[1080,1080],"uploads/vulnerability-sh-ssearch-darkmode.webp":[1484,758],"uploads/15_Scale_Safe_Releases.webp":[1069,549],"uploads/Brand Guidelines - 25.webp":[1600,900],"uploads/Build_buy.webp":[802,812],"uploads/HSS-PJ-Metz.webp":[1200,627],"uploads/FFT_ Feature toggles and hypothesis-driven development _ DevNation Tech Talk.webp":[1600,900],"uploads/Brand Guidelines - 19.webp":[1600,900],"uploads/HSS-Aaron.webp":[1600,1067],"uploads/FFT_SOC2 is not a 4 letter word_ A startup guide to compliance.webp":[1600,900],"uploads/Webinars_The Fallacy of Move Fast and Break Things.webp":[1600,900],"uploads/vulnerability-sh-stats-darkmode.webp":[1484,758],"uploads/FFT_Enabling Continuous Delivery with Feature Flags and LaunchDarkly.webp":[1600,900],"uploads/4_Run_Actionable_Experiments-f50660e8.webp":[1068,666],"uploads/vulnerability-sh-library-darkmode.webp":[1484,758],"uploads/Testimonial - All.webp":[1600,900],"uploads/TIP_How LaunchDarkly Enables Product Managers to Test in Production.webp":[1600,900],"uploads/GS_Targeting- Taking Your Feature Flags Further.webp":[1600,900],"uploads/FFT_When Feature flags go bad.webp":[1600,900],"uploads/HSS-MichaelSam.webp":[1600,1200],"uploads/Email-Weekly-Report.webp":[1280,3950],"uploads/Blog-Nuclei.webp":[1200,630],"uploads/FFT_How to create feature flags in LaunchDarkly.webp":[1600,900],"uploads/Security.webp":[1440,3349],"uploads/Uberflip_AMA with Jon Smart DOES U.S. Virtual.webp":[1600,900],"uploads/Website-Pricing.webp":[1440,6710],"uploads/What_is_Feature_Management.webp":[1440,4013],"uploads/Website-Launch-Week.webp":[1600,5902],"uploads/Website-Case-Study-50978f6a.webp":[1440,6020],"uploads/Build_vs_Buy.webp":[1440,4090],"uploads/Case_Studies.webp":[1440,5257],"uploads/Website-Enterprise.webp":[1440,9319],"uploads/Solution.webp":[1440,5947],"uploads/Why_LaunchDarkly.webp":[1440,5281],"uploads/Our_Customers.webp":[1440,5630],"uploads/Enterprise.webp":[1440,6305],"uploads/Code_References.webp":[1440,4754],"uploads/Website-Vulnerability-Management.webp":[1440,7502],"uploads/The_Definitive_Guide_to_Feature_Management.webp":[1440,5828],"uploads/Website-Homepage.webp":[1440,9374],"uploads/github_stars_gif-1782577183700.gif":[600,315]};
+  const IMG_DIMS = {"uploads/Email_Thumbnail.webp":[600,313],"uploads/CVE_Template.webp":[1200,630],"uploads/Website_Share_Card.webp":[1200,630],"uploads/Pioneers_Program.webp":[1600,837],"uploads/HSS_Event_Ad.webp":[1600,837],"uploads/academy-social-1200x1200.webp":[1200,1200],"uploads/1774327958129.jpg":[800,533],"uploads/Presentation_thumbnail.webp":[1920,1080],"uploads/Logo_Evolution_Thumbnail.webp":[1920,1080],"uploads/Logo_Evolution_1.webp":[1920,1080],"uploads/Logo_Evolution_2.webp":[1920,1080],"uploads/Logo_Evolution_3.webp":[1920,1080],"uploads/PD-Brand-Thumb.webp":[1600,900],"uploads/PD-Web-Thumb-new.webp":[721,444],"uploads/Brand Guidelines - 18.webp":[1600,900],"uploads/Menu - Platform.webp":[1440,460],"uploads/pd-playtika-social.webp":[1200,627],"uploads/vulnerability-sh-stats-lightmode.webp":[1484,758],"uploads/Brand Guidelines - 1.webp":[1600,900],"uploads/Brand Guidelines - 8.webp":[1600,900],"uploads/ld-testimonial-elastic.webp":[1200,628],"uploads/Brand Guidelines - 14.webp":[1600,900],"uploads/Brand Guidelines - 9.webp":[1600,900],"uploads/Brand Guidelines - 24.webp":[1600,900],"uploads/Brand Guidelines - 5.webp":[1600,900],"uploads/Brand Guidelines - 23.webp":[1600,900],"uploads/HSS-Brendan.webp":[1600,1067],"uploads/Brand Guidelines - 15.webp":[1600,900],"uploads/vulnerability-sh-products-lightmode.webp":[1484,758],"uploads/14_Test_Innovations.webp":[1068,549],"uploads/Brand Guidelines - 3.webp":[1600,900],"uploads/Brand Guidelines - 22.webp":[1600,900],"uploads/12_Feature_Workflows-34ac2b80.webp":[1088,549],"uploads/19_Discover_when_a_Flag.webp":[1068,549],"uploads/18_Search_for_References.webp":[1068,549],"uploads/1_Release_Confidentialy-84a07bcb.webp":[1069,656],"uploads/Brand Guidelines - 11.webp":[1600,900],"uploads/HSS-Email-Confirmation.webp":[640,998],"uploads/HSS-Waffle.webp":[1600,1067],"uploads/HSS-Thumbnail.webp":[1600,900],"uploads/Brand Guidelines - 12.webp":[1600,900],"uploads/vulnerability-sh-search-lightmode.webp":[1484,758],"uploads/16_App_Modernization.webp":[1068,549],"uploads/Brand Guidelines - 17.webp":[1600,900],"uploads/17_Filter_by_Repository.webp":[1068,549],"uploads/Galaxy-Thumb.webp":[1600,901],"uploads/Brand Guidelines - 10.webp":[1600,900],"uploads/13_Platform_Architecture-025f974d.webp":[1068,549],"uploads/Data_Dog.webp":[1600,900],"uploads/Brand Guidelines - 7.webp":[1600,900],"uploads/6_APIs-7a0befba.webp":[1068,549],"uploads/Brand Guidelines - 16.webp":[1600,900],"uploads/Brand Guidelines - 20.webp":[1600,900],"uploads/5_SDKs-b6440c8b.webp":[1068,549],"uploads/vulnerability-sh-library-lightmode.webp":[1484,758],"uploads/21_Advanced_Targeting.webp":[1068,549],"uploads/Brand Guidelines - 13.webp":[1600,900],"uploads/7_Integrations-70d5edb0.webp":[1068,549],"uploads/11_Feature_Flags-2cca8e07.webp":[1068,549],"uploads/Brand Guidelines - 2.webp":[1600,900],"uploads/22_Technical_Debt_Management.webp":[1068,549],"uploads/Brand Guidelines - 26.webp":[1600,900],"uploads/Brand Guidelines - 4.webp":[1600,900],"uploads/9_Experimentation-fd81e67a.webp":[1068,549],"uploads/Trajectory Nano Series Week 1 of 4_ Making Releases Boring in the Enterprise.webp":[1600,900],"uploads/8_Code_References-023d9e30.webp":[1068,549],"uploads/Uberflip_Explainer.webp":[1600,900],"uploads/20_Workflow_Automation.webp":[1068,549],"uploads/Email-Vulnerability-Scan.webp":[1280,1482],"uploads/vulnerability-sh-products-darkmode.webp":[1484,758],"uploads/FFT_ DevOps at Speed with Feature Flags.webp":[1600,900],"uploads/FFT_Deploying rapidly for continuous integration with Heidi Waterhouse.webp":[1600,900],"uploads/10_Data_Export-d7ece312.webp":[1068,549],"uploads/Webinars_Dynatrace Webinar.webp":[1600,900],"uploads/Brand Guidelines - 6.webp":[1600,900],"uploads/Brand Guidelines - 21.webp":[1600,900],"uploads/FFT_How Atlassian Does DevOps Webinar - Building Products.webp":[1600,900],"uploads/23_Security_and_Administration.webp":[1068,549],"uploads/3_Safely_Migrate_Systems-6027ae61.webp":[1068,656],"uploads/Uberflip_Code_Refs.webp":[1600,900],"uploads/2_Improve_Reliability-3782a307.webp":[1068,656],"uploads/PD-Product-Thumb.webp":[1080,1080],"uploads/vulnerability-sh-ssearch-darkmode.webp":[1484,758],"uploads/15_Scale_Safe_Releases.webp":[1069,549],"uploads/Brand Guidelines - 25.webp":[1600,900],"uploads/Build_buy.webp":[802,812],"uploads/HSS-PJ-Metz.webp":[1200,627],"uploads/FFT_ Feature toggles and hypothesis-driven development _ DevNation Tech Talk.webp":[1600,900],"uploads/Brand Guidelines - 19.webp":[1600,900],"uploads/HSS-Aaron.webp":[1600,1067],"uploads/FFT_SOC2 is not a 4 letter word_ A startup guide to compliance.webp":[1600,900],"uploads/Webinars_The Fallacy of Move Fast and Break Things.webp":[1600,900],"uploads/vulnerability-sh-stats-darkmode.webp":[1484,758],"uploads/FFT_Enabling Continuous Delivery with Feature Flags and LaunchDarkly.webp":[1600,900],"uploads/4_Run_Actionable_Experiments-f50660e8.webp":[1068,666],"uploads/vulnerability-sh-library-darkmode.webp":[1484,758],"uploads/Testimonial - All.webp":[1600,900],"uploads/TIP_How LaunchDarkly Enables Product Managers to Test in Production.webp":[1600,900],"uploads/GS_Targeting- Taking Your Feature Flags Further.webp":[1600,900],"uploads/FFT_When Feature flags go bad.webp":[1600,900],"uploads/HSS-MichaelSam.webp":[1600,1200],"uploads/Email-Weekly-Report.webp":[1280,3950],"uploads/Blog-Nuclei.webp":[1200,630],"uploads/FFT_How to create feature flags in LaunchDarkly.webp":[1600,900],"uploads/Security.webp":[1440,3349],"uploads/Uberflip_AMA with Jon Smart DOES U.S. Virtual.webp":[1600,900],"uploads/Website-Pricing.webp":[1440,6710],"uploads/What_is_Feature_Management.webp":[1440,4013],"uploads/Website-Launch-Week.webp":[1600,5902],"uploads/Website-Case-Study-50978f6a.webp":[1440,6020],"uploads/Build_vs_Buy.webp":[1440,4090],"uploads/Case_Studies.webp":[1440,5257],"uploads/Website-Enterprise.webp":[1440,9319],"uploads/Solution.webp":[1440,5947],"uploads/Why_LaunchDarkly.webp":[1440,5281],"uploads/Our_Customers.webp":[1440,5630],"uploads/Enterprise.webp":[1440,6305],"uploads/Code_References.webp":[1440,4754],"uploads/Website-Vulnerability-Management.webp":[1440,7502],"uploads/The_Definitive_Guide_to_Feature_Management.webp":[1440,5828],"uploads/Website-Homepage.webp":[1440,9374],"uploads/github_stars_gif-1782577183700.gif":[600,315]};
 
   window.LO = {
     projects: PROJECTS,

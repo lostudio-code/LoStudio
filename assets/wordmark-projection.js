@@ -1,19 +1,27 @@
 /* Lo Studio footer — cube-swarm logo (Codrops video-projection rig, no video).
    Default: cubes scattered and drifting. Hover: they resolve into the logo. */
 (function () {
-  var wrap = document.querySelector('.wordmark[data-video]');
-  if (!wrap || !window.THREE) return;
+  var wrap = document.querySelector('.wordmark[data-logo]');
+  if (!wrap || !window.LO_loadThree) return;
   var stage = wrap.querySelector('.wm-stage');
   var logoSrc = wrap.getAttribute('data-logo');
 
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var THREE = window.THREE;
+  var mq = window.matchMedia;
+  /* the effect is hover-driven and costs ~600 KB of WebGL — phones and touch keep the flat logo */
+  if (mq && (mq('(hover: none)').matches || mq('(max-width: 900px)').matches)) return;
+  var reduce = mq && mq('(prefers-reduced-motion: reduce)').matches;
+  var THREE;
 
   var COLS = 168, ROWS = 26;
 
   var started = false;
   var io = new IntersectionObserver(function (ents) {
-    ents.forEach(function (e) { if (e.isIntersecting && !started) { started = true; io.disconnect(); init(); } });
+    ents.forEach(function (e) {
+      if (e.isIntersecting && !started) {
+        started = true; io.disconnect();
+        window.LO_loadThree().then(function (t) { THREE = t; init(); }, function () {});
+      }
+    });
   }, { rootMargin: '200px' });
   io.observe(wrap);
 
@@ -164,20 +172,23 @@
 
     var visible = true;
     var vio = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { visible = e.isIntersecting; });
+      es.forEach(function (e) { visible = e.isIntersecting; if (visible) kick(); });
     }, { threshold: 0.01 });
     vio.observe(wrap);
 
-    var t0 = performance.now();
+    var t0 = performance.now(), raf = null;
     function frame(now) {
-      requestAnimationFrame(frame);
-      if (!visible) return;
+      raf = null;
+      if (!visible || document.hidden) return;
+      raf = requestAnimationFrame(frame);
       var t = (now - t0) / 1000;
       cur += (target - cur) * 0.07;
       mat.uniforms.uTime.value = reduce ? 0 : t;
       mat.uniforms.uAssemble.value = reduce ? 1 : cur;
       renderer.render(scene, camera);
     }
-    requestAnimationFrame(frame);
+    function kick() { if (!raf && visible && !document.hidden) raf = requestAnimationFrame(frame); }
+    document.addEventListener('visibilitychange', kick);
+    kick();
   }
 })();

@@ -11,8 +11,7 @@
   if (mq('(prefers-reduced-motion: reduce)').matches) return;
   if (mq('(hover: none)').matches || mq('(pointer: coarse)').matches) return;
 
-  function init() {
-    if (!window.THREE) return;
+  function boot() {
     var THREE = window.THREE;
 
     var canvas = document.createElement('canvas');
@@ -207,6 +206,18 @@
       requestAnimationFrame(frame);
     }
     kick();
+  }
+
+  /* three.js is only worth its bytes once a real pointer shows up */
+  function init() {
+    if (!window.LO_loadThree) return;
+    var kicked = false;
+    function go() {
+      if (kicked) return; kicked = true;
+      window.removeEventListener('pointermove', go);
+      window.LO_loadThree().then(boot, function () {});
+    }
+    window.addEventListener('pointermove', go, { passive: true });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

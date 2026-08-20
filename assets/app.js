@@ -126,34 +126,52 @@
   }
   $$('.roll').forEach(buildRoll);
 
+  /* ---- one rAF-coalesced scroll pass for all scroll-driven UI ---- */
+  const scrollJobs = [];
+  let scrollTick = false;
+  function runScrollJobs() { scrollTick = false; for (let i = 0; i < scrollJobs.length; i++) scrollJobs[i](); }
+  function onScroll(fn) { scrollJobs.push(fn); fn(); }
+  window.addEventListener('scroll', () => { if (!scrollTick) { scrollTick = true; requestAnimationFrame(runScrollJobs); } }, { passive: true });
+
   /* ---- sticky nav (top nav glass + mobile bar shadow) ---- */
   const topbar = $('.topbar');
   const topnav = $('.topnav');
-  const onNavScroll = () => {
+  onScroll(() => {
     if (topbar) topbar.style.boxShadow = window.scrollY > 20 ? '0 10px 30px -16px rgba(0,0,0,.6)' : 'none';
     if (topnav) topnav.classList.toggle('scrolled', window.scrollY > 24);
-  };
-  onNavScroll();
-  window.addEventListener('scroll', onNavScroll, { passive: true });
+  });
 
-  /* ---- reveal + counters + rolls (robust viewport check) ---- */
+  /* ---- reveal + counters + rolls (IntersectionObserver — no per-scroll layout reads) ---- */
+  const revealIO = 'IntersectionObserver' in window ? new IntersectionObserver((ents) => {
+    ents.forEach((en) => {
+      if (!en.isIntersecting) return;
+      const el = en.target;
+      if (el.classList.contains('roll')) runRoll(el);
+      if (el.classList.contains('reveal')) el.classList.add('in');
+      revealIO.unobserve(el);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0 }) : null;
   function checkReveal() {
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    $$('.reveal:not(.in)').forEach((el) => {
-      const r = el.getBoundingClientRect();
-      if (r.top < vh * 0.92 && r.bottom > 0) el.classList.add('in');
-    });
-    $$('.roll').forEach((el) => {
-      const r = el.getBoundingClientRect();
-      if (r.top < vh * 0.85 && r.bottom > 0) runRoll(el);
-    });
+    if (!revealIO) {
+      $$('.reveal:not(.in)').forEach((el) => el.classList.add('in'));
+      $$('.roll').forEach(runRoll);
+      return;
+    }
+    $$('.reveal:not(.in), .roll').forEach((el) => { if (el._obs) return; el._obs = 1; revealIO.observe(el); });
   }
   window.LO_checkReveal = checkReveal;
   checkReveal();
-  window.addEventListener('scroll', checkReveal, { passive: true });
-  window.addEventListener('resize', checkReveal);
   window.addEventListener('load', checkReveal);
   setTimeout(checkReveal, 200);
+  /* a page loaded in a hidden tab gets no IO callbacks — reveal what is already in view on activation */
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') return;
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    $$('.reveal:not(.in)').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) el.classList.add('in');
+    });
+  });
 
   /* ---- service illustrations: draw-on as each card scrolls into focus (plays once) ---- */
   function setupIlloAnim() {
@@ -318,17 +336,21 @@
     restart();
   }
 
-  /* ---- scrollspy for nav ---- */
+  /* ---- scrollspy for nav (cached offsets, runs in the shared scroll pass) ---- */
   const navLinks = $$('.topnav-links a[data-sec]');
   if (navLinks.length) {
     const secs = navLinks.map(a => $('#' + a.dataset.sec)).filter(Boolean);
-    const spy = () => {
+    let tops = [];
+    const measure = () => { tops = secs.map(s => s.offsetTop); };
+    measure();
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    onScroll(() => {
       const y = window.scrollY + window.innerHeight * 0.35;
       let active = secs[0];
-      secs.forEach(s => { if (s.offsetTop <= y) active = s; });
+      secs.forEach((s, i) => { if (tops[i] <= y) active = s; });
       navLinks.forEach(a => a.classList.toggle('active', active && a.dataset.sec === active.id));
-    };
-    spy(); window.addEventListener('scroll', spy, { passive: true });
+    });
   }
 
   /* ---- HULY LIGHT MOTES (rising particles around the beam) ---- */

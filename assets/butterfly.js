@@ -4,9 +4,17 @@
   var mq = window.matchMedia;
   if (mq('(prefers-reduced-motion: reduce)').matches) return;
   if (mq('(hover: none)').matches || mq('(max-width: 620px)').matches) return;
+  /* hover-triggered accent — don't pull three.js until a pointer actually shows up */
   function init() {
-    if (!window.THREE) return;
-    document.querySelectorAll('.bf-host').forEach(mount);
+    var hosts = document.querySelectorAll('.bf-host');
+    if (!hosts.length || !window.LO_loadThree) return;
+    var kicked = false;
+    function go() {
+      if (kicked) return; kicked = true;
+      window.removeEventListener('pointermove', go);
+      window.LO_loadThree().then(function () { hosts.forEach(mount); }, function () {});
+    }
+    window.addEventListener('pointermove', go, { passive: true });
   }
   function mount(host) {
     var THREE = window.THREE, btn = host.querySelector('.btn');

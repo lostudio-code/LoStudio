@@ -525,3 +525,29 @@ p { max-width: 75%; }
   .hero-role { font-size: 20px; }
   .menu-overlay a { font-size: 28px; }
 }
+/* small screens — keep mono micro-labels legible */
+@media (max-width: 620px){
+  .pcard .cat-pill { font-size: 11px; }
+  .pcard .co { font-size: 11px; }
+  .pcard.bcard .bcard-tags span { font-size: 11px; }
+}
+/* ============================================================
+   TOUCH DEVICES — comfortable hit areas, notch-safe padding
+   ============================================================ */
+@supports (padding: max(0px)) {
+  .topbar { padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+  .menu-overlay { padding-left: max(28px, env(safe-area-inset-left)); padding-right: max(28px, env(safe-area-inset-right)); padding-bottom: max(40px, env(safe-area-inset-bottom)); }
+  .footer .footer-bottom { padding-bottom: env(safe-area-inset-bottom); }
+}
+@media (hover: none) and (pointer: coarse){
+  /* padding + matching negative margin: bigger target, same visual rhythm */
+  .menu-btn { padding: 14px 6px; margin: -14px -6px; }
+  .menu-overlay .close { padding: 12px; margin: -12px; }
+  .footer-col a, .footer-col p { padding: 12px 0; margin: -7px 0; }
+  .to-top { padding: 12px 0; margin: -12px 0; }
+  .footer-bottom { align-items: center; }
+  .qc-dots { gap: 2px; }
+  .qc-dot, .qc-dot.on { width: 28px; height: 40px; border-radius: 0; background: none; display: grid; place-items: center; }
+  .qc-dot::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.22); transition: background .3s, width .3s; }
+  .qc-dot.on::before { width: 24px; border-radius: 5px; background: var(--link); }
+}
