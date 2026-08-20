@@ -28,6 +28,9 @@
 <meta name="twitter:image" content="https://lostudio.net/assets/brand/og-card.jpg" />
 
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="preload" href="assets/fonts/geist-5.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/brand/hero-poster.jpg" as="image" media="(max-width: 900px)" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
 <link rel="stylesheet" href="assets/styles.css" />
 <link rel="stylesheet" href="assets/sections.css" />
 <style>
@@ -154,10 +157,13 @@ body.am-lock { overflow: hidden; }
 <main id="main">
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <video class="hero-video" data-depth="0.08" autoplay muted loop playsinline preload="metadata" poster="assets/brand/hero-poster.jpg" aria-hidden="true">
-    <source src="assets/brand/hero.mp4" type="video/mp4" />
-  </video>
-  <script>(function(){var v=document.currentScript.previousElementSibling;if(!v)return;var show=function(){v.classList.add('ready')};if(v.readyState>=3)show();else{v.addEventListener('canplay',show,{once:true});v.addEventListener('loadeddata',show,{once:true});}setTimeout(show,2500);})();</script>
+  <video class="hero-video" data-depth="0.08" data-src="assets/brand/hero.mp4" muted loop playsinline preload="none" poster="assets/brand/hero-poster.jpg" aria-hidden="true"></video>
+  <script>(function(){var v=document.currentScript.previousElementSibling;if(!v)return;var show=function(){v.classList.add('ready')};
+  /* the CSS hides this video on phones, touch devices and reduced-motion — don't spend 4 MB fetching it there */
+  var c=navigator.connection||{};var cheap=c.saveData||/2g/.test(c.effectiveType||'');
+  if(getComputedStyle(v).display==='none'||cheap){v.remove();return;}
+  var s=document.createElement('source');s.type='video/mp4';s.src=v.dataset.src;v.appendChild(s);v.load();v.play().catch(function(){});
+  if(v.readyState>=3)show();else{v.addEventListener('canplay',show,{once:true});v.addEventListener('loadeddata',show,{once:true});}setTimeout(show,2500);})();</script>
   <div class="hero-space" data-depth="0.1" aria-hidden="true"></div>
   <div class="hero-spot" data-depth="0.4"></div>
   <div class="hero-veil"></div>
@@ -270,7 +276,7 @@ body.am-lock { overflow: hidden; }
           <span class="disc"><img class="disc-mark" src="assets/brand/logomark.svg" alt="Lo Studio" /></span>
         </div>
         <div class="portrait">
-          <img id="portrait-photo" class="portrait-photo" src="assets/brand/michael.jpg" alt="Michael DeBiase" style="object-fit:cover" />
+          <img id="portrait-photo" class="portrait-photo" src="assets/brand/michael.jpg" alt="Michael DeBiase" width="1000" height="1000" loading="lazy" decoding="async" style="object-fit:cover" />
           <div class="portrait-name"><span>Michael DeBiase</span></div>
         </div>
       </div>
@@ -365,7 +371,7 @@ body.am-lock { overflow: hidden; }
       <div class="footer-col"><h5>Connect</h5><a href="https://github.com/lostudio-code" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/company/lo-studio-inc" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/lostudioinc/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@LoStudioInc" target="_blank" rel="noopener">YouTube</a><a href="https://x.com/lostudioinc" target="_blank" rel="noopener">X</a></div>
       <div class="footer-col"><h5>Studio</h5><a href="https://brand.lostudio.net" target="_blank" rel="noopener">Design System</a><a href="privacy.html" data-privacy-open>Privacy Policy</a></div>
     </div>
-    <div class="wordmark" data-logo="assets/brand/lo-studio-logo-white.png" data-video="assets/brand/projection.mp4"><div class="wm-stage"><img src="assets/brand/lo-studio-logo-white.png" alt="Lo Studio" /></div></div>
+    <div class="wordmark" data-logo="assets/brand/lo-studio-logo-white.png"><div class="wm-stage"><img src="assets/brand/lo-studio-logo-white.png" alt="Lo Studio" /></div></div>
     <div class="footer-bottom">
       <span>© Lo Studio, Inc.</span>
       <a class="to-top" href="#top">Back to top <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
@@ -427,7 +433,7 @@ body.am-lock { overflow: hidden; }
 </div>
 <script>(function(){var ov=document.getElementById('privacyModal');if(!ov)return;var last=null;function open(e){if(e){e.preventDefault();last=e.currentTarget;}ov.hidden=false;requestAnimationFrame(function(){ov.classList.add('open')});document.body.classList.add('am-lock');ov.querySelector('.pv-close').focus();}function close(){ov.classList.remove('open');document.body.classList.remove('am-lock');setTimeout(function(){ov.hidden=true;if(last)last.focus()},250);}document.querySelectorAll('[data-privacy-open]').forEach(function(a){a.addEventListener('click',open)});ov.querySelectorAll('[data-privacy-close]').forEach(function(b){b.addEventListener('click',close)});ov.addEventListener('click',function(e){if(e.target===ov)close()});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!ov.hidden)close()});})();</script>
 
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
+<script src="assets/three-loader.js" defer></script>
 <script src="assets/wordmark-projection.js" defer></script>
 <script src="assets/butterfly.js" defer></script>
 <script src="assets/cursor-spray.js" defer></script>
@@ -441,7 +447,7 @@ body.am-lock { overflow: hidden; }
 
   /* brand feature cards */
   const grid = document.getElementById('brandGrid');
-  grid.innerHTML = window.LO.brands.map((b, i) => {
+  grid.innerHTML = window.LO.brands.filter(b => window.LO.brandProjects(b.id).length).map((b, i) => {
     const items = window.LO.brandProjects(b.id);
     const cats = Array.from(new Set(items.flatMap(p => window.LO.catsOf(p))));
     const n = items.length;
