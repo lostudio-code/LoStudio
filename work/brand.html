@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
-<title>Selected work · Lo Studio — Michael DeBiase</title>
-<meta name="description" content="Selected work for a single brand — brand identity, web design, product UI, motion and events. From the portfolio of Michael DeBiase." />
+<title>Selected work · Lo Studio · Michael DeBiase</title>
+<meta name="description" content="Selected work for a single brand, covering brand identity, web design, product UI, motion and events. From the portfolio of Michael DeBiase." />
 <meta name="author" content="Michael DeBiase" />
 <meta name="theme-color" content="#141414" />
 <meta name="robots" content="index, follow" />
@@ -32,7 +32,7 @@
 <nav class="topnav" id="topnav" aria-label="Primary">
   <div class="topnav-inner">
     <a class="brand" href="../index.html">
-      <img class="brand-logo" src="../assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
+      <img class="brand-logo" width="692" height="104" decoding="async" src="../assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
     </a>
     <div class="topnav-links">
       <a href="../index.html#work"><span class="idx">01</span>Work</a>
@@ -50,7 +50,7 @@
 
 <header class="topbar" aria-label="Mobile">
   <a class="brand" href="../index.html">
-    <img class="brand-logo" src="../assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
+    <img class="brand-logo" width="692" height="104" decoding="async" src="../assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
   </a>
   <button class="menu-btn" data-menu-open aria-expanded="false" aria-controls="menuOverlay" aria-label="Open menu"><span class="bars"><i></i><i></i></span>Menu</button>
 </header>
@@ -80,7 +80,7 @@
       <div class="footer-col"><h5>Studio</h5><p>San Francisco, CA</p><p>Available for work</p><p>© 2026 Lo Studio</p></div>
     </div>
     <div class="wordmark">Lo Studio</div>
-    <div class="footer-bottom"><span>Brand &amp; Product Design — Michael DeBiase</span><a class="to-top" href="#bp">Back to top ↑</a></div>
+    <div class="footer-bottom"><span>Brand &amp; Product Design · Michael DeBiase</span><a class="to-top" href="#bp">Back to top ↑</a></div>
   </div>
 </footer>
 </div>
@@ -95,10 +95,10 @@
   const cats = ['All', ...Array.from(new Set(items.flatMap(p => window.LO.catsOf(p))))];
   const arrow = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0b0e16" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>';
 
-  document.title = `${B.name} — Selected work · Lo Studio`;
+  document.title = `${B.name} · Selected work · Lo Studio`;
   (function () {
     const url = location.origin + location.pathname + '?id=' + B.id;
-    const title = `${B.name} — Selected work · Lo Studio`;
+    const title = `${B.name} · Selected work · Lo Studio`;
     const desc = B.blurb.replace(/\s+/g, ' ').trim().slice(0, 160);
     const img = 'https://lostudio.net/' + B.thumb.replace(/^\//, '');
     const set = (sel, attr, val) => { const el = document.querySelector(sel); if (el && val) el.setAttribute(attr, val); };
@@ -163,5 +163,7 @@
 })();
 </script>
 <script src="../assets/app.js"></script>
+<script>/* Vercel Analytics: loads only where the /_vercel endpoint exists (Vercel hosting) */
+(function(){var h=location.hostname;if(!(h.endsWith('.vercel.app')||h==='lostudio.net'||h==='www.lostudio.net'))return;var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.body.appendChild(s);})();</script>
 </body>
 </html>

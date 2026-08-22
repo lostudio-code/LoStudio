@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
-<title>Case Study · Lo Studio — Michael DeBiase</title>
-<meta name="description" content="A selected case study from Lo Studio — the portfolio of Michael DeBiase. Brand, web, product UI, motion and go-to-market design." />
+<title>Case Study · Lo Studio · Michael DeBiase</title>
+<meta name="description" content="A selected case study from Lo Studio, the portfolio of Michael DeBiase. Brand, web, product UI, motion and go to market design." />
 <meta name="author" content="Michael DeBiase" />
 <meta name="theme-color" content="#141414" />
 <meta name="robots" content="index, follow" />
@@ -33,7 +33,7 @@
 <nav class="topnav" id="topnav" aria-label="Primary">
   <div class="topnav-inner">
     <a class="brand" href="../index.html">
-      <img class="brand-logo" src="../assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
+      <img class="brand-logo" width="692" height="104" decoding="async" src="../assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
     </a>
     <div class="topnav-links">
       <a href="../index.html#work"><span class="idx">01</span>Work</a>
@@ -52,7 +52,7 @@
 <!-- MOBILE TOP BAR -->
 <header class="topbar" aria-label="Mobile">
   <a class="brand" href="../index.html">
-    <img class="brand-logo" src="../assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
+    <img class="brand-logo" width="692" height="104" decoding="async" src="../assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
   </a>
   <button class="menu-btn" data-menu-open aria-expanded="false" aria-controls="menuOverlay" aria-label="Open menu"><span class="bars"><i></i><i></i></span>Menu</button>
 </header>
@@ -82,7 +82,7 @@
       <div class="footer-col"><h5>Studio</h5><p>San Francisco, CA</p><p>Available for work</p><p>© 2026 Lo Studio</p></div>
     </div>
     <div class="wordmark">Lo Studio</div>
-    <div class="footer-bottom"><span>Brand &amp; Product Design — Michael DeBiase</span><a class="to-top" href="#cs">Back to top ↑</a></div>
+    <div class="footer-bottom"><span>Brand &amp; Product Design · Michael DeBiase</span><a class="to-top" href="#cs">Back to top ↑</a></div>
   </div>
 </footer>
 </div>
@@ -96,12 +96,12 @@
   const asset = (p) => (p && !/^(?:https?:)?\//.test(p)) ? '../' + p : p;
   const id = params.get('id') || 'projectdiscovery-website';
   const P = window.LO.byId(id) || window.LO.projects[0];
-  document.title = `${P.company} — ${P.title} · Lo Studio`;
+  document.title = `${P.company} · ${P.title} · Lo Studio`;
 
   /* ---- per-project SEO / social metadata ---- */
   (function () {
     const url = location.origin + location.pathname + '?id=' + P.id;
-    const title = `${P.company} — ${P.title} · Lo Studio`;
+    const title = `${P.company} · ${P.title} · Lo Studio`;
     const desc = (P.summary || '').replace(/\s+/g, ' ').trim().slice(0, 160);
     const raw = P.poster || P.hero || '';
     const img = /^https?:/.test(raw) ? raw : (raw ? 'https://lostudio.net/' + raw.replace(/^\//, '') : 'https://lostudio.net/assets/brand/og-card.jpg');
@@ -121,7 +121,7 @@
       'itemListElement': [
         { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://lostudio.net/' },
         { '@type': 'ListItem', 'position': 2, 'name': 'Work', 'item': 'https://lostudio.net/#work' },
-        { '@type': 'ListItem', 'position': 3, 'name': `${P.company} — ${P.title}`, 'item': 'https://lostudio.net/work/project.html?id=' + P.id }
+        { '@type': 'ListItem', 'position': 3, 'name': `${P.company} · ${P.title}`, 'item': 'https://lostudio.net/work/project.html?id=' + P.id }
       ]
     });
     document.head.appendChild(crumbs);
@@ -133,12 +133,13 @@
   const stats = (P.stats||[]).map(s => `<div class="cs-stat reveal"><div class="n">${s.n}</div><div class="l">${s.l}</div></div>`).join('');
 
   const vidItems = (P.gallery||[]).filter(g => g.yt !== undefined);
-  const imgItems = (P.gallery||[]).filter(g => g.yt === undefined);
+  const filmItems = (P.gallery||[]).filter(g => g.mp4);
+  const imgItems = (P.gallery||[]).filter(g => g.yt === undefined && !g.mp4);
 
   const videos = vidItems.map((g, i) => {
     const vid = window.LO.ytId(g.yt);
     return `<div class="cs-video reveal" data-d="${(i%3)+1}"${vid ? ` data-yt="${vid}" role="button" tabindex="0" aria-label="Play: ${g.cap}"` : ''}>
-      ${g.img ? `<img src="${asset(g.img)}" alt="${g.cap}" loading="lazy" decoding="async" />` : ''}
+      ${g.img ? `<img src="${asset(g.img)}" alt="${g.cap}"${wh(g.img)} loading="lazy" decoding="async" />` : ''}
       ${vid ? `<span class="vplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>` : ''}
       <span class="cap">${g.cap}</span>
     </div>`;
@@ -151,6 +152,12 @@
       : window.LO.mock(g.theme, P.accent);
     return `<div class="cs-shot ${span} reveal" data-d="${(i%3)+1}">${inner}<span class="cap">${g.cap}</span></div>`;
   }).join('');
+
+  /* self-hosted films: native player, nothing fetched until the tile is on screen */
+  const films = filmItems.map((g, i) => `<div class="cs-video cs-film reveal" data-d="${(i%3)+1}">
+      <video src="${asset(g.mp4)}" preload="none"${g.poster ? ` poster="${asset(g.poster)}"` : ''} controls playsinline muted loop aria-label="${g.cap}"></video>
+      <span class="cap">${g.cap}</span>
+    </div>`).join('');
 
   const body = (P.body||[]).length ? `<p>${(P.body||[]).join(' ')}</p>` : '';
 
@@ -170,6 +177,7 @@
           <div><div class="k">Scope</div><div class="v">${P.scope}</div></div>
           <div><div class="k">Outcome</div><div class="v">${P.outcome}</div></div>
         </div>
+        ${P.live ? `<p class="reveal" data-d="5" style="margin-top:26px"><a href="${P.live}" target="_blank" rel="noopener" style="color:var(--link);text-decoration:underline;text-underline-offset:4px;font-weight:500">View live site →</a></p>` : ''}
       </div>
     </header>
 
@@ -199,6 +207,7 @@
       <div class="wrap">
         ${videos ? `<div class="cs-videos${P.videoOrientation === 'vertical' ? ' vertical' : ''}">${videos}</div>` : ''}
         ${gallery ? `<div class="cs-gallery${P.galleryLayout === 'grid' ? ' grid' : ''}">${gallery}</div>` : ''}
+        ${films ? `<div class="cs-films">${films}</div>` : ''}
       </div>
     </section>
 
@@ -208,7 +217,7 @@
           <div class="glow" style="background:radial-gradient(circle, ${next.accent}40, transparent 62%)"></div>
           <div style="position:relative;z-index:2">
             <div class="k">Next project</div>
-            <h3>${next.company} — ${next.title}</h3>
+            <h3>${next.company} · ${next.title}</h3>
           </div>
           <span class="btn btn-primary" style="position:relative;z-index:2">View project →</span>
         </a>
@@ -294,6 +303,8 @@
 })();
 </script>
 <script src="../assets/app.js"></script>
+<script>/* Vercel Analytics: loads only where the /_vercel endpoint exists (Vercel hosting) */
+(function(){var h=location.hostname;if(!(h.endsWith('.vercel.app')||h==='lostudio.net'||h==='www.lostudio.net'))return;var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.body.appendChild(s);})();</script>
 </body>
 </html>
 
