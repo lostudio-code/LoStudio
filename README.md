@@ -45,30 +45,27 @@ All work items live in `assets/projects.js` as a single array. Each entry drives
 ## Deploy
 
 Zero-config static site — no build step. All asset paths are relative, so it runs
-correctly from a domain root or a project subpath (e.g. `username.github.io/repo/`).
+correctly from a domain root or a project subpath.
 
-### GitHub Pages (recommended)
+### Vercel
 
-A workflow at `.github/workflows/deploy.yml` publishes the site automatically.
-
-1. **Push to GitHub** — commit and push to a repository (default branch `main`).
-2. **Enable Pages** — repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. **Deploy.** Every push to `main` runs the workflow and publishes the site. The live
-   URL appears in the workflow run and under Settings → Pages.
-
-`.nojekyll` disables Jekyll processing so files are served exactly as committed.
-
-**Custom domain (`lostudio.net`):** in Settings → Pages set the custom domain, then add
-your DNS records (an `ALIAS`/`ANNAME` or four `A` records to GitHub's IPs for the apex,
-or a `CNAME` to `username.github.io` for `www`). GitHub commits a `CNAME` file for you.
-The site's canonical, Open Graph, and sitemap URLs already point to `https://lostudio.net/`.
-
-### Vercel (alternative)
+The live site (`lostudio.net`) is served by Vercel.
 
 1. Import the repo at [vercel.com/new](https://vercel.com/new).
    - Framework Preset: **Other**; Build Command and Output Directory left empty.
-2. Deploy. `vercel.json` adds long-lived caching for `/assets` and `/uploads` plus
-   baseline security headers. Pushes redeploy automatically; PRs get preview URLs.
+2. Deploy. Pushes to `main` redeploy automatically; PRs get preview URLs.
+
+`vercel.json` adds long-lived immutable caching for `/assets` and `/uploads` plus
+baseline security headers (`nosniff`, `X-Frame-Options`, `Referrer-Policy`). These are
+Vercel-specific — they do nothing on a static host that ignores `vercel.json`.
+
+**Custom domain:** add `lostudio.net` under the project's Domains tab and point your DNS
+at Vercel. The site's canonical, Open Graph, and sitemap URLs already use
+`https://lostudio.net/`.
+
+**Analytics:** enable Analytics in the Vercel project. Each page loads
+`/_vercel/insights/script.js`, guarded by hostname so it only fires on `*.vercel.app`
+and `lostudio.net` — local dev and any non-Vercel host skip it instead of 404ing.
 
 ## Fonts
 
