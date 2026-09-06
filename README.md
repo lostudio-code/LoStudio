@@ -22,6 +22,9 @@ Then open <http://localhost:8000>.
 
 ```
 index.html            Home — hero, work grid, services, process, about, FAQ
+resume.html           Résumé — experience, skills, tool stack (linked from the footer)
+privacy.html          Privacy policy
+404.html              Not-found page
 work/project.html     Case-study template (reads ?id= from the work grid)
 assets/
   styles.css          Base styles, tokens, layout primitives
@@ -35,6 +38,7 @@ assets/
   cursor-spray.js     Hero cursor trail (three.js, desktop pointers only)
   wordmark-projection.js  Footer wordmark (three.js)
   brand/              Logo, favicon, portrait, hero video + poster
+  logos/              Tool-stack brand marks for resume.html
 uploads/              Project imagery
 ```
 

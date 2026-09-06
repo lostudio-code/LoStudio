@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Résumé · Michael DeBiase · Lo Studio</title>
+<meta name="description" content="Résumé of Michael DeBiase, founder of Lo Studio. 20+ years of marketing and brand design. Currently contracting; open to the right full-time role." />
+<meta name="author" content="Michael DeBiase" />
+<meta name="theme-color" content="#141414" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://lostudio.net/resume.html" />
+<link rel="icon" type="image/svg+xml" href="assets/brand/logomark.svg" />
+<link rel="apple-touch-icon" href="assets/brand/logo-mark.png" />
+<meta property="og:type" content="profile" />
+<meta property="og:site_name" content="Lo Studio" />
+<meta property="og:title" content="Résumé · Michael DeBiase" />
+<meta property="og:description" content="20+ years of marketing and brand design. Open to senior, lead and principal roles." />
+<meta property="og:url" content="https://lostudio.net/resume.html" />
+<meta property="og:image" content="https://lostudio.net/assets/brand/og-card.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Résumé · Michael DeBiase" />
+<meta name="twitter:description" content="20+ years of marketing and brand design. Currently contracting and running Lo Studio." />
+<meta name="twitter:image" content="https://lostudio.net/assets/brand/og-card.jpg" />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="preload" href="assets/fonts/geist-5.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="stylesheet" href="assets/sections.css" />
+<style>
+.rs { padding: 150px 0 40px; }
+.rs-eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--link); }
+.rs h1 { margin: 16px 0 0; font-size: clamp(38px, 7vw, 74px); font-weight: 600; letter-spacing: -.035em; line-height: .98; color: #fff; }
+.rs-role { margin-top: 12px; font-size: clamp(19px, 2.4vw, 26px); font-weight: 500; letter-spacing: -.02em; color: var(--d-ink-2); }
+.rs-pill { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 10px 18px; border-radius: 100px; border: 1px solid rgba(217,244,0,.4); background: rgba(217,244,0,.08); font-family: var(--mono); font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--link); }
+.rs-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--link); animation: rs-blink 2.4s ease-in-out infinite; }
+@keyframes rs-blink { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+.rs-intro { margin-top: 34px; max-width: 640px; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.6; color: var(--d-ink-2); }
+.rs-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.rs-sec { padding: 54px 0; border-top: 1px solid var(--d-line); }
+.rs-sec > h2 { margin: 0 0 26px; font-size: clamp(24px, 3vw, 34px); font-weight: 600; letter-spacing: -.03em; color: #fff; }
+.rs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px,100%), 1fr)); gap: 14px; }
+.rs-card { background: var(--panel); border: 1px solid var(--d-line); border-radius: 16px; padding: 24px 24px 26px; }
+.rs-card h3 { margin: 0 0 9px; font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+.rs-card p { margin: 0; max-width: none; font-size: 14px; line-height: 1.6; color: var(--ink-3); }
+.rs-chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.rs-chips span { padding: 9px 15px; border-radius: 100px; border: 1px solid var(--d-line); background: var(--panel); font-size: 13.5px; color: var(--d-ink-2); }
+.rs .exp { margin-top: 0; }
+.rs-toolgroup { display: grid; grid-template-columns: 132px 1fr; gap: 20px 24px; align-items: start; padding: 18px 0; border-top: 1px solid var(--d-line); }
+.rs-toolgroup:first-of-type { border-top: 0; padding-top: 0; }
+.rs-toolgroup > h3 { margin: 6px 0 0; font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--link); font-weight: 400; }
+.rs-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; }
+.rs-tool { display: flex; align-items: center; gap: 12px; padding: 13px 15px; background: var(--panel); border: 1px solid var(--d-line); border-radius: 12px; transition: border-color .3s, transform .3s, background .3s; }
+.rs-tool:hover { border-color: rgba(217,244,0,.4); background: #212124; transform: translateY(-2px); }
+.rs-tool img { flex: none; width: 26px; height: 26px; object-fit: contain; }
+.rs-tool img[src*="github"], .rs-tool img[src*="vercel"], .rs-tool img[src*="notion"], .rs-tool img[src*="chatgpt"], .rs-tool img[src*="cursor"], .rs-tool img[src*="framer"], .rs-tool img[src*="linear"] { filter: invert(1) brightness(2); }
+.rs-tool span { font-size: 13.5px; letter-spacing: -.01em; line-height: 1.3; color: var(--d-ink-2); text-wrap: pretty; }
+@media (max-width: 700px){ .rs-toolgroup { grid-template-columns: 1fr; gap: 12px; } }
+.rs-foot { padding: 44px 0 60px; border-top: 1px solid var(--d-line); display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); }
+.rs-foot a { color: var(--link); text-decoration: none; }
+.rs-foot a:hover { opacity: .75; }
+a { color: var(--link); }
+a:hover { opacity: .8; }
+@media (max-width: 700px){ .rs { padding: 110px 0 20px; } .rs-sec { padding: 40px 0; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain"></div>
+
+<nav class="topnav" id="topnav" aria-label="Primary">
+  <div class="topnav-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" width="692" height="104" decoding="async" src="assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
+    </a>
+    <div class="topnav-links">
+      <a href="index.html#work"><span class="idx">01</span>Work</a>
+      <a href="index.html#services"><span class="idx">02</span>Services</a>
+      <a href="index.html#process"><span class="idx">03</span>Process</a>
+      <a href="index.html#about"><span class="idx">04</span>About</a>
+      <a href="index.html#faq"><span class="idx">05</span>FAQ</a>
+    </div>
+    <div class="topnav-right">
+      <a class="topnav-cta" href="https://calendly.com/lostudioinc/30min" target="_blank" rel="noopener">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="topbar" aria-label="Mobile">
+  <a class="brand" href="index.html">
+    <img class="brand-logo" width="692" height="104" decoding="async" src="assets/brand/lo-studio-logo-white.png" alt="Lo Studio" />
+  </a>
+  <a class="menu-btn" href="index.html">Back to site</a>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <section class="rs">
+    <div class="rs-eyebrow">Résumé</div>
+    <h1>Michael DeBiase</h1>
+    <p class="rs-role">Creative Director &amp; Lead Designer</p>
+    <div class="rs-pill"><i></i>Contracting now, open to full-time</div>
+    <p class="rs-intro">Twenty years of marketing and brand design, mostly inside teams that had to grow fast. Right now I'm contracting and running Lo Studio, my boutique design studio, and I'm happy to keep doing that. I'm also open to a full-time role if it's the right fit.</p>
+    <div class="rs-actions">
+      <span class="bf-host" data-bf-scale="0.5"><a class="btn btn-primary" href="https://calendly.com/lostudioinc/30min" target="_blank" rel="noopener">Book a call <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a></span>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/company/lo-studio-inc" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="index.html#work">See the work</a>
+    </div>
+  </section>
+
+  <section class="rs-sec">
+    <h2>What I'm looking for</h2>
+    <div class="rs-grid">
+      <div class="rs-card"><h3>The role</h3><p>Senior, lead or principal design and video roles at a company on a mission. Marketing and brand design is my specialty, and I work closely with product design when teams need it.</p></div>
+      <div class="rs-card"><h3>Where</h3><p>Remote is my preference, and I'm open to hybrid or on site for the right opportunity. Ideally the San Francisco Bay Area or New York City.</p></div>
+      <div class="rs-card"><h3>What I bring</h3><p>Range plus speed. One designer covering what would otherwise take five specialists, with the quality kept high and the work shipped on schedule.</p></div>
+    </div>
+  </section>
+
+  <section class="rs-sec">
+    <h2>Experience</h2>
+    <div class="exp">
+      <div class="exp-row"><div><div class="co">Lo Studio</div><div class="ro">Creative Director &amp; Lead Designer</div></div><div class="yr">Present</div></div>
+      <div class="exp-row"><div><div class="co">ProjectDiscovery</div><div class="ro">Principal Designer</div></div><div class="yr">2 years</div></div>
+      <div class="exp-row"><div><div class="co">LaunchDarkly</div><div class="ro">Senior Designer &amp; Video Editor</div></div><div class="yr">5 years</div></div>
+      <div class="exp-row"><div><div class="co">Auction.com / Ten-X</div><div class="ro">Creative Director</div></div><div class="yr">4 years</div></div>
+      <div class="exp-row"><div><div class="co">Netflix</div><div class="ro">Senior Marketing Design Manager</div></div><div class="yr">7 years</div></div>
+      <div class="exp-row"><div><div class="co">Playboy Enterprises</div><div class="ro">Multimedia Designer</div></div><div class="yr">4 years</div></div>
+      <div class="exp-row"><div><div class="co">Sony Music Studios</div><div class="ro">Intern &amp; Motion Graphic Designer</div></div><div class="yr">3 months</div></div>
+    </div>
+  </section>
+
+  <section class="rs-sec">
+    <h2>What I do</h2>
+    <div class="rs-chips">
+      <span>Brand identity</span><span>Marketing design</span><span>Web design</span><span>UI/UX</span><span>Motion graphics</span><span>Video production &amp; editing</span><span>Creative direction</span><span>Go-to-market</span><span>Event experiences</span><span>Design systems</span><span>AI-powered workflows</span><span>Vibe coding</span>
+    </div>
+  </section>
+
+  <section class="rs-sec">
+    <h2>Favorite tools</h2>
+    <div class="rs-toolgroup">
+      <h3>Design</h3>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/claude.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Claude Design</span></div><div class="rs-tool"><img src="assets/logos/figma.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Figma</span></div><div class="rs-tool"><img src="assets/logos/photoshop.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Photoshop</span></div><div class="rs-tool"><img src="assets/logos/illustrator.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Illustrator</span></div><div class="rs-tool"><img src="assets/logos/indesign.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>InDesign</span></div></div>
+    </div>
+    <div class="rs-toolgroup">
+      <h3>Motion &amp; video</h3>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/after-effects.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>After Effects</span></div><div class="rs-tool"><img src="assets/logos/premiere.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Premiere Pro</span></div><div class="rs-tool"><img src="assets/logos/lottie.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Lottie</span></div><div class="rs-tool"><img src="assets/logos/figma-weave.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Figma Weave</span></div><div class="rs-tool"><img src="assets/logos/heygen.png" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>HeyGen</span></div></div>
+    </div>
+    <div class="rs-toolgroup">
+      <h3>Build</h3>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/framer.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Framer</span></div><div class="rs-tool"><img src="assets/logos/webflow.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Webflow</span></div><div class="rs-tool"><img src="assets/logos/cursor.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Cursor</span></div><div class="rs-tool"><img src="assets/logos/github.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>GitHub</span></div><div class="rs-tool"><img src="assets/logos/vercel.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Vercel</span></div></div>
+    </div>
+    <div class="rs-toolgroup">
+      <h3>AI</h3>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/claude.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Claude</span></div><div class="rs-tool"><img src="assets/logos/chatgpt.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>ChatGPT</span></div><div class="rs-tool"><img src="assets/logos/gemini.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Gemini</span></div><div class="rs-tool"><img src="assets/logos/grok.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Grok</span></div><div class="rs-tool"><img src="assets/logos/elevenlabs.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>ElevenLabs</span></div></div>
+    </div>
+    <div class="rs-toolgroup">
+      <h3>Ops</h3>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/notion.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Notion</span></div><div class="rs-tool"><img src="assets/logos/linear.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Linear</span></div><div class="rs-tool"><img src="assets/logos/slack.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Slack</span></div><div class="rs-tool"><img src="assets/logos/atlassian.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Atlassian</span></div><div class="rs-tool"><img src="assets/logos/google.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>G Suite</span></div></div>
+    </div>
+  </section>
+
+  <div class="rs-foot">
+    <span>© Lo Studio, Inc.</span>
+    <a href="index.html">Back to lostudio.net</a>
+  </div>
+
+</div>
+</main>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
