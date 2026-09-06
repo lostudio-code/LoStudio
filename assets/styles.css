@@ -275,10 +275,13 @@ p { max-width: 75%; }
 .hero-body { position: relative; z-index: 20; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
 .hero h1 { margin: 0; }
 .hero-role { font-size: clamp(26px, 3.6vw, 50px); font-weight: 600; letter-spacing: -.03em; color: #fff; margin-top: 14px; display: inline-flex; align-items: baseline; gap: .32em; }
-.role-rot { position: relative; display: inline-grid; vertical-align: bottom; }
-.role-rot span { grid-area: 1/1; opacity: 0; transform: translateY(40%) rotateX(-40deg); transition: opacity .5s, transform .5s; transform-origin: bottom; color: #fff; white-space: nowrap; }
+.hero .hero-h1 { color: #fff; }
+.h1-role { display: flex; flex-wrap: wrap; align-items: baseline; font: inherit; color: #fff; }
+.role-rot { position: relative; display: inline-grid; vertical-align: bottom; perspective: 900px; }
+.role-rot span { grid-area: 1/1; opacity: 0; transform: translateY(34%) rotateX(-34deg); transition: opacity .5s cubic-bezier(.22,1,.36,1), transform .62s cubic-bezier(.22,1,.36,1); transform-origin: bottom; color: #fff; white-space: nowrap; will-change: opacity, transform; backface-visibility: hidden; }
 .role-rot span.on { opacity: 1; transform: none; }
-.role-rot span.out { opacity: 0; transform: translateY(-40%) rotateX(40deg); }
+.role-rot span.out { opacity: 0; transform: translateY(-34%) rotateX(34deg); transition-duration: .34s, .42s; }
+.role-rot span:not(.on):not(.out) { transition: none; }
 .hero-intro { display: flex; flex-direction: column; align-items: flex-start; gap: 30px; margin-top: 40px; }
 .hero-intro .lead { max-width: 540px; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }

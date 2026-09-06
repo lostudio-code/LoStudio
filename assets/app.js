@@ -72,12 +72,17 @@
   if (rot && !reduce) {
     const items = $$('span', rot);
     let i = 0; items[0].classList.add('on');
-    setInterval(() => {
-      const cur = items[i]; cur.classList.remove('on'); cur.classList.add('out');
-      setTimeout(() => cur.classList.remove('out'), 600);
-      i = (i + 1) % items.length;
-      items[i].classList.add('on');
-    }, 2200);
+    const cycle = () => {
+      const cur = items[i], next = items[(i + 1) % items.length];
+      cur.classList.remove('on'); cur.classList.add('out');
+      setTimeout(() => {
+        cur.classList.remove('out');
+        next.classList.add('on');
+        i = (i + 1) % items.length;
+        setTimeout(cycle, 2000);
+      }, 440);
+    };
+    setTimeout(cycle, 2000);
   } else if (rot) { $$('span', rot)[0].classList.add('on'); }
 
   /* ---- rolling-digit counters ---- */

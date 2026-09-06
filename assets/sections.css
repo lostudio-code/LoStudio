@@ -248,16 +248,60 @@
 .to-top { display: inline-flex; align-items: center; gap: 8px; color: var(--d-ink-3); transition: color .2s; }
 .to-top:hover { color: var(--link); }
 
-/* ---- dark-mode icon stroke overrides (beat inline presentation attrs) ---- */
-.step .dot svg { stroke: var(--link); transition: stroke .4s, transform .45s cubic-bezier(.2,.7,.3,1); }
-.step:hover .dot svg { stroke: var(--link-ink); }
-.step:nth-child(1):hover .dot svg { animation: ico-scan .6s cubic-bezier(.2,.7,.3,1); }
-.step:nth-child(2):hover .dot svg { animation: ico-launch .6s cubic-bezier(.2,.7,.3,1); }
-.step:nth-child(3):hover .dot svg { animation: ico-assemble .6s cubic-bezier(.2,.7,.3,1); }
-.step:nth-child(4):hover .dot svg { animation: ico-fly .6s cubic-bezier(.2,.7,.3,1); }
-@keyframes ico-scan { 0%{transform:none} 40%{transform:scale(1.22) rotate(-12deg)} 70%{transform:scale(1.05) rotate(4deg)} 100%{transform:none} }
-@keyframes ico-launch { 0%{transform:none} 45%{transform:translate(3px,-4px) scale(1.16)} 100%{transform:none} }
-@keyframes ico-assemble { 0%{transform:none} 50%{transform:rotate(90deg) scale(1.12)} 100%{transform:rotate(0) scale(1)} }
-@keyframes ico-fly { 0%{transform:none} 40%{transform:translate(4px,-4px) rotate(8deg) scale(1.12)} 100%{transform:none} }
+/* ---- step micro-illustrations ---- */
+.step .mi { margin: 20px 0 18px; border-radius: 12px; background: rgba(217,244,0,.05); border: 1px solid rgba(217,244,0,.16); overflow: hidden; transition: background .4s, border-color .4s; }
+.step:hover .mi { background: rgba(217,244,0,.09); border-color: rgba(217,244,0,.38); }
+.step .mi svg { display: block; width: 100%; height: auto; }
+.step .mi svg * { transform-box: fill-box; }
+/* each looping scene fades out before it resets, so the reset is never seen playing backwards */
+@keyframes mi-cycle { 0% { opacity: 0; } 6% { opacity: 1; } 84% { opacity: 1; } 95%,100% { opacity: 0; } }
+.mi-align svg, .mi-sys svg { animation: mi-cycle 5.6s linear infinite; }
+.mi-ship svg { animation: mi-cycle 5.2s linear infinite; }
+
+/* 1 · Align — the lead sets a direction, the team rotates into parallel */
+.mi-align .arw { transform-origin: left center; }
+.mi-align .mem .arw { animation: 5.6s cubic-bezier(.2,.7,.3,1) infinite; }
+.mi-align .m1 .arw { animation-name: mi-al-1; }
+.mi-align .m2 .arw { animation-name: mi-al-2; animation-delay: .14s; }
+@keyframes mi-al-1 { 0% { transform: rotate(-32deg); } 45%,100% { transform: rotate(0deg); } }
+@keyframes mi-al-2 { 0% { transform: rotate(27deg); } 45%,100% { transform: rotate(0deg); } }
+.mi-align .mem circle { animation: mi-al-dot 5.6s ease-out infinite; }
+.mi-align .m2 circle { animation-delay: .14s; }
+@keyframes mi-al-dot { 0%,30% { stroke: rgba(255,255,255,.4); } 55%,100% { stroke: rgba(217,244,0,.75); } }
+.mi-align .halo { transform-origin: center; animation: mi-al-halo 5.6s ease-out infinite; }
+@keyframes mi-al-halo { 0%,45% { transform: scale(.6); opacity: 0; } 62% { transform: scale(1.15); opacity: 1; } 75%,100% { transform: scale(1); opacity: .8; } }
+
+/* 2 · Explore — the accent highlight lifts and cycles between directions */
+.mi-explore .hl { opacity: 0; transform-origin: center bottom; animation: mi-explore 5.4s ease-in-out infinite; }
+.mi-explore .h2 { animation-delay: 1.8s; } .mi-explore .h3 { animation-delay: 3.6s; }
+@keyframes mi-explore { 0% { opacity: 0; transform: translateY(0) scale(1); } 7% { opacity: 1; transform: translateY(-5px) scale(1.04); } 26% { opacity: 1; transform: translateY(-5px) scale(1.04); } 34%,100% { opacity: 0; transform: translateY(0) scale(1); } }
+
+/* 3 · Systematize — scattered pieces snap into a tidy grid */
+.mi-sys .sq { transform-origin: center; animation-duration: 5.6s; animation-timing-function: cubic-bezier(.2,.7,.3,1); animation-iteration-count: infinite; }
+.mi-sys .s0 { animation-name: mi-sys-0; animation-delay: 0.00s; }
+@keyframes mi-sys-0 { 0% { transform: translate(-26px,-13px) rotate(-14deg); opacity: .34; } 45%,100% { transform: translate(0,0) rotate(0deg); opacity: 1; } }
+.mi-sys .s1 { animation-name: mi-sys-1; animation-delay: 0.07s; }
+@keyframes mi-sys-1 { 0% { transform: translate(18px,-19px) rotate(11deg); opacity: .34; } 45%,100% { transform: translate(0,0) rotate(0deg); opacity: 1; } }
+.mi-sys .s2 { animation-name: mi-sys-2; animation-delay: 0.14s; }
+@keyframes mi-sys-2 { 0% { transform: translate(34px,-8px) rotate(-8deg); opacity: .34; } 45%,100% { transform: translate(0,0) rotate(0deg); opacity: 1; } }
+.mi-sys .s3 { animation-name: mi-sys-3; animation-delay: 0.21s; }
+@keyframes mi-sys-3 { 0% { transform: translate(-31px,15px) rotate(9deg); opacity: .34; } 45%,100% { transform: translate(0,0) rotate(0deg); opacity: 1; } }
+.mi-sys .s4 { animation-name: mi-sys-4; animation-delay: 0.28s; }
+@keyframes mi-sys-4 { 0% { transform: translate(6px,22px) rotate(-12deg); opacity: .34; } 45%,100% { transform: translate(0,0) rotate(0deg); opacity: 1; } }
+.mi-sys .s5 { animation-name: mi-sys-5; animation-delay: 0.35s; }
+@keyframes mi-sys-5 { 0% { transform: translate(29px,17px) rotate(7deg); opacity: .34; } 45%,100% { transform: translate(0,0) rotate(0deg); opacity: 1; } }
+
+/* 4 · Ship — bars grow, the trajectory draws, the arrowhead lands */
+.mi-ship .bar { transform-origin: center bottom; animation: mi-ship-bar 5.2s cubic-bezier(.2,.7,.3,1) infinite; }
+.mi-ship .b1 { animation-delay: .1s; } .mi-ship .b2 { animation-delay: .2s; } .mi-ship .b3 { animation-delay: .3s; }
+@keyframes mi-ship-bar { 0% { transform: scaleY(.12); opacity: .4; } 42%,100% { transform: scaleY(1); opacity: 1; } }
+.mi-ship .trail { stroke-dasharray: 120; animation: mi-ship-trail 5.2s cubic-bezier(.2,.7,.3,1) infinite; }
+@keyframes mi-ship-trail { 0% { stroke-dashoffset: 120; } 48%,100% { stroke-dashoffset: 0; } }
+.mi-ship .tip { animation: mi-ship-tip 5.2s ease-out infinite; }
+@keyframes mi-ship-tip { 0%,44% { opacity: 0; } 58%,100% { opacity: 1; } }
+.mi-ship .pip { animation: mi-ship-pip 5.2s cubic-bezier(.2,.7,.3,1) infinite; }
+@keyframes mi-ship-pip { 0% { transform: translate(0,0); } 48%,100% { transform: translate(105px,-36px); } }
+.about .exp-more { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--link); text-decoration: none; transition: gap .2s, opacity .2s; }
+.about .exp-more:hover { gap: 11px; opacity: .8; }
 .contact .links a .ic svg { stroke: var(--link); }
 .contact .links a .ic { background: rgba(217,244,0,.12); border-color: rgba(217,244,0,.3); }
