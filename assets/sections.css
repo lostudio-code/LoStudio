@@ -301,7 +301,7 @@
 @keyframes mi-ship-tip { 0%,44% { opacity: 0; } 58%,100% { opacity: 1; } }
 .mi-ship .pip { animation: mi-ship-pip 5.2s cubic-bezier(.2,.7,.3,1) infinite; }
 @keyframes mi-ship-pip { 0% { transform: translate(0,0); } 48%,100% { transform: translate(105px,-36px); } }
-.about .exp-more { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--link); text-decoration: none; transition: gap .2s, opacity .2s; }
-.about .exp-more:hover { gap: 11px; opacity: .8; }
+.about .exp-more { display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; }
+.about .exp-more:hover { gap: 12px; }
 .contact .links a .ic svg { stroke: var(--link); }
 .contact .links a .ic { background: rgba(217,244,0,.12); border-color: rgba(217,244,0,.3); }

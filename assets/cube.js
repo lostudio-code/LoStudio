@@ -100,7 +100,7 @@
   /* ---------- global spin (idle + drag) ---------- */
   let rx = -26, ry = -34, vry = 0.34, vrx = 0;
   let dragging = false, lx = 0, ly = 0, downX = 0, downY = 0, moved = 0, downFace = null;
-  const BASE_SPIN = 0.34, REST_RX = -26;
+  const BASE_SPIN = parseFloat(stageEl.dataset.spin) || 0.34, REST_RX = -26;
   let spinHold = 0; // frames to pause idle spin after interaction
   function applySpin() { cube.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`; }
   applySpin();
@@ -192,11 +192,13 @@
   if (stageEl.hasAttribute('data-solve') && !reduce) {
     const undo = scrambleMoves.slice().reverse().map(([a, l, d]) => [a, l, -d]);
     let i = 0, stopped = false;
-    stageEl.addEventListener('pointerdown', () => { stopped = true; }, { once: true });
+    stageEl.addEventListener('pointerdown', () => { stopped = true; });
     function next() {
       if (stopped || i >= undo.length) return;
+      const onScreen = stageEl.offsetParent !== null && (typeof cubeVisible === 'undefined' || cubeVisible);
+      if (busy || !onScreen) { setTimeout(next, 200); return; }
       const [a, l, d] = undo[i++];
-      setTimeout(() => { if (!stopped) turn(a, l, d, next); }, 140);
+      turn(a, l, d, () => setTimeout(next, 140));
     }
     setTimeout(next, 900);
   }
