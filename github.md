@@ -5,7 +5,7 @@ branch: main
 path: logos
 
 ## Last sync
-date: 2026-09-06T16:38:04Z
+date: 2026-09-06T17:15:00Z
 
 ### Updated in this project
 - 23 brand marks live in `assets/logos/` for the "My tool stack" section on `resume.html`.

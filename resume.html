@@ -14,7 +14,7 @@
 <meta property="og:type" content="profile" />
 <meta property="og:site_name" content="Lo Studio" />
 <meta property="og:title" content="Résumé · Michael DeBiase" />
-<meta property="og:description" content="20+ years of marketing and brand design. Open to senior, lead and principal roles." />
+<meta property="og:description" content="20+ years of marketing and brand design. Currently contracting and running Lo Studio; open to the right full-time role." />
 <meta property="og:url" content="https://lostudio.net/resume.html" />
 <meta property="og:image" content="https://lostudio.net/assets/brand/og-card.jpg" />
 <meta name="twitter:card" content="summary" />
@@ -26,14 +26,12 @@
 <link rel="stylesheet" href="assets/styles.css" />
 <link rel="stylesheet" href="assets/sections.css" />
 <style>
-.rs { padding: 150px 0 40px; }
-.rs-eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--link); }
-.rs h1 { margin: 16px 0 0; font-size: clamp(38px, 7vw, 74px); font-weight: 600; letter-spacing: -.035em; line-height: .98; color: #fff; }
+.rs { padding: 150px 0 40px; display: grid; grid-template-columns: minmax(0,1fr) 340px; column-gap: 48px; align-items: center; }
+.rs .cube-stage { position: relative; display: block; right: auto; top: auto; transform: none; width: 340px; height: 340px; justify-self: end; }
+@media (max-width: 980px){ .rs { grid-template-columns: minmax(0,1fr); } .rs .cube-stage { display: none; } }
+.rs h1 { margin: 0; font-size: clamp(38px, 7vw, 74px); font-weight: 600; letter-spacing: -.035em; line-height: .98; color: #fff; }
 .rs-role { margin-top: 12px; font-size: clamp(19px, 2.4vw, 26px); font-weight: 500; letter-spacing: -.02em; color: var(--d-ink-2); }
-.rs-pill { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 10px 18px; border-radius: 100px; border: 1px solid rgba(217,244,0,.4); background: rgba(217,244,0,.08); font-family: var(--mono); font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--link); }
-.rs-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--link); animation: rs-blink 2.4s ease-in-out infinite; }
-@keyframes rs-blink { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
-.rs-intro { margin-top: 34px; max-width: 640px; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.6; color: var(--d-ink-2); }
+.rs-intro { margin-top: 26px; max-width: 640px; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.6; color: var(--d-ink-2); }
 .rs-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .rs-sec { padding: 54px 0; border-top: 1px solid var(--d-line); }
 .rs-sec > h2 { margin: 0 0 26px; font-size: clamp(24px, 3vw, 34px); font-weight: 600; letter-spacing: -.03em; color: #fff; }
@@ -95,22 +93,26 @@ a:hover { opacity: .8; }
 <div class="wrap">
 
   <section class="rs">
-    <div class="rs-eyebrow">Résumé</div>
+    <div class="rs-lede">
     <h1>Michael DeBiase</h1>
     <p class="rs-role">Creative Director &amp; Lead Designer</p>
-    <div class="rs-pill"><i></i>Contracting now, open to full-time</div>
-    <p class="rs-intro">Twenty years of marketing and brand design, mostly inside teams that had to grow fast. Right now I'm contracting and running Lo Studio, my boutique design studio, and I'm happy to keep doing that. I'm also open to a full-time role if it's the right fit.</p>
+    <p class="rs-intro">Twenty years of marketing and brand design, mostly inside teams that had to grow fast. Right now I'm contracting and running Lo Studio, my boutique design studio, and I'm happy to keep doing that. I'm also open to a full-time role if it's the right fit. <a class="about-more" href="#" data-about-modal>Learn more about Michael.</a></p>
     <div class="rs-actions">
       <span class="bf-host" data-bf-scale="0.5"><a class="btn btn-primary" href="https://calendly.com/lostudioinc/30min" target="_blank" rel="noopener">Book a call <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a></span>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/company/lo-studio-inc" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-ghost" href="index.html#work">See the work</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/debiase/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    </div>
+    <div class="cube-stage" id="cubeStage" data-solve data-spin="0.06" aria-hidden="true">
+      <div class="cube-scene">
+        <div class="cube" id="rubik"></div>
+      </div>
     </div>
   </section>
 
   <section class="rs-sec">
     <h2>What I'm looking for</h2>
     <div class="rs-grid">
-      <div class="rs-card"><h3>The role</h3><p>Senior, lead or principal design and video roles at a company on a mission. Marketing and brand design is my specialty, and I work closely with product design when teams need it.</p></div>
+      <div class="rs-card"><h3>The role</h3><p>Senior, lead or principal design and video roles at a company on a mission. Marketing and brand design is my specialty, and I work closely with product design when teams need it. Contract engagements through Lo Studio work too.</p></div>
       <div class="rs-card"><h3>Where</h3><p>Remote is my preference, and I'm open to hybrid or on site for the right opportunity. Ideally the San Francisco Bay Area or New York City.</p></div>
       <div class="rs-card"><h3>What I bring</h3><p>Range plus speed. One designer covering what would otherwise take five specialists, with the quality kept high and the work shipped on schedule.</p></div>
     </div>
@@ -162,11 +164,13 @@ a:hover { opacity: .8; }
 
   <div class="rs-foot">
     <span>© Lo Studio, Inc.</span>
-    <a href="index.html">Back to lostudio.net</a>
+    <a href="index.html#work">See the work</a>
   </div>
 
 </div>
 </main>
 <script src="assets/app.js" defer></script>
+<script src="assets/cube.js" defer></script>
+<script src="assets/about-modal.js" defer></script>
 </body>
 </html>
