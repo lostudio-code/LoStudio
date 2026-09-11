@@ -26,38 +26,60 @@
 <link rel="stylesheet" href="assets/styles.css" />
 <link rel="stylesheet" href="assets/sections.css" />
 <style>
-.rs { padding: 150px 0 40px; display: grid; grid-template-columns: minmax(0,1fr) 340px; column-gap: 48px; align-items: center; }
-.rs .cube-stage { position: relative; display: block; right: auto; top: auto; transform: none; width: 340px; height: 340px; justify-self: end; }
-@media (max-width: 980px){ .rs { grid-template-columns: minmax(0,1fr); } .rs .cube-stage { display: none; } }
+.rs, .rs-sec { max-width: 640px; margin-left: auto; margin-right: auto; }
+.rs-foot { max-width: none; }
+.rs-linkedin { display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 24px 26px; background: var(--panel); border: 1px solid var(--d-line); border-radius: 16px; text-decoration: none; transition: border-color .3s, background .3s, transform .3s; }
+.rs-linkedin:hover { border-color: rgba(217,244,0,.4); background: #212124; transform: translateY(-2px); opacity: 1; }
+.rs-li-copy { display: flex; flex-direction: column; gap: 6px; }
+.rs-li-t { font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+.rs-li-s { font-size: 14px; line-height: 1.55; color: var(--ink-3); }
+.rs-li-go { flex: none; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--d-line); color: var(--link); }
+.rs-linkedin:hover .rs-li-go { border-color: rgba(217,244,0,.4); }
+.rs { padding: 150px 0 40px; }
+.rs-lede { width: fit-content; max-width: 100%; margin: 0 auto; }
 .rs h1 { margin: 0; font-size: clamp(38px, 7vw, 74px); font-weight: 600; letter-spacing: -.035em; line-height: .98; color: #fff; }
 .rs-role { margin-top: 12px; font-size: clamp(19px, 2.4vw, 26px); font-weight: 500; letter-spacing: -.02em; color: var(--d-ink-2); }
-.rs-intro { margin-top: 26px; max-width: 640px; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.6; color: var(--d-ink-2); }
-.rs-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.rs-intro { margin-top: 22px; max-width: 640px; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.6; color: var(--d-ink-2); }
 .rs-sec { padding: 54px 0; border-top: 1px solid var(--d-line); }
 .rs-sec > h2 { margin: 0 0 26px; font-size: clamp(24px, 3vw, 34px); font-weight: 600; letter-spacing: -.03em; color: #fff; }
-.rs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px,100%), 1fr)); gap: 14px; }
-.rs-card { background: var(--panel); border: 1px solid var(--d-line); border-radius: 16px; padding: 24px 24px 26px; }
-.rs-card h3 { margin: 0 0 9px; font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: #fff; }
-.rs-card p { margin: 0; max-width: none; font-size: 14px; line-height: 1.6; color: var(--ink-3); }
-.rs-chips { display: flex; flex-wrap: wrap; gap: 9px; }
-.rs-chips span { padding: 9px 15px; border-radius: 100px; border: 1px solid var(--d-line); background: var(--panel); font-size: 13.5px; color: var(--d-ink-2); }
 .rs .exp { margin-top: 0; }
-.rs-toolgroup { display: grid; grid-template-columns: 132px 1fr; gap: 20px 24px; align-items: start; padding: 18px 0; border-top: 1px solid var(--d-line); }
-.rs-toolgroup:first-of-type { border-top: 0; padding-top: 0; }
-.rs-toolgroup > h3 { margin: 6px 0 0; font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--link); font-weight: 400; }
-.rs-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; }
+.rs-sec .exp-row { padding: 20px 2px; align-items: baseline; }
+.rs-sec .exp-row:first-child { border-top: 0; padding-top: 0; }
+.rs-sec .exp-row:hover { padding-left: 2px; }
+.rs-sec .exp-row .co { font-size: 17px; }
+.rs-sec .exp-row .ro { margin-top: 4px; }
+.exp-note { margin: 9px 0 0; max-width: 60ch; font-size: 14px; line-height: 1.6; color: var(--ink-3); text-wrap: pretty; }
+.rs-sec .exp-row > div:first-child { padding-right: 18px; }
+.rs-dogrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 10px; }
+.rs-do { padding: 14px 16px; background: var(--panel); border: 1px solid var(--d-line); border-radius: 12px; font-size: 13.5px; letter-spacing: -.01em; color: var(--d-ink-2); transition: border-color .3s, transform .3s, background .3s; }
+.rs-do:hover { border-color: rgba(217,244,0,.4); background: #212124; transform: translateY(-2px); }
+.rs-toolgroup { display: block; padding: 0 0 22px; }
+.rs-toolgroup:last-of-type { padding-bottom: 0; }
+.rs-toolgroup > h3 { margin: 0 0 12px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--link); font-weight: 400; }
+.rs-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
 .rs-tool { display: flex; align-items: center; gap: 12px; padding: 13px 15px; background: var(--panel); border: 1px solid var(--d-line); border-radius: 12px; transition: border-color .3s, transform .3s, background .3s; }
 .rs-tool:hover { border-color: rgba(217,244,0,.4); background: #212124; transform: translateY(-2px); }
 .rs-tool img { flex: none; width: 26px; height: 26px; object-fit: contain; }
-.rs-tool img[src*="github"], .rs-tool img[src*="vercel"], .rs-tool img[src*="notion"], .rs-tool img[src*="chatgpt"], .rs-tool img[src*="cursor"], .rs-tool img[src*="framer"], .rs-tool img[src*="linear"] { filter: invert(1) brightness(2); }
+.rs-tool img[src*="github"], .rs-tool img[src*="vercel"], .rs-tool img[src*="notion"], .rs-tool img[src*="chatgpt"], .rs-tool img[src*="framer"], .rs-tool img[src*="linear"] { filter: invert(1) brightness(2); }
 .rs-tool span { font-size: 13.5px; letter-spacing: -.01em; line-height: 1.3; color: var(--d-ink-2); text-wrap: pretty; }
-@media (max-width: 700px){ .rs-toolgroup { grid-template-columns: 1fr; gap: 12px; } }
 .rs-foot { padding: 44px 0 60px; border-top: 1px solid var(--d-line); display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em; color: var(--ink-3); }
 .rs-foot a { color: var(--link); text-decoration: none; }
 .rs-foot a:hover { opacity: .75; }
 a { color: var(--link); }
 a:hover { opacity: .8; }
-@media (max-width: 700px){ .rs { padding: 110px 0 20px; } .rs-sec { padding: 40px 0; } }
+@media (max-width: 700px){
+  .rs { padding: 110px 0 20px; }
+  .rs-sec { padding: 38px 0; }
+  .rs-sec > h2 { margin-bottom: 20px; }
+  .rs-sec .exp-row { flex-direction: column; align-items: flex-start; gap: 6px; padding: 18px 0; }
+  .rs-sec .exp-row > div:first-child { padding-right: 0; }
+  .rs-sec .exp-row .yr { order: -1; }
+  .exp-note { max-width: none; }
+  .rs-dogrid, .rs-tools { grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); }
+  .rs-linkedin { flex-direction: column; align-items: flex-start; gap: 16px; padding: 22px; }
+  .rs-foot { padding: 34px 0 48px; }
+}
+@media (max-width: 400px){ .rs-dogrid, .rs-tools { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -96,45 +118,37 @@ a:hover { opacity: .8; }
     <div class="rs-lede">
     <h1>Michael DeBiase</h1>
     <p class="rs-role">Creative Director &amp; Lead Designer</p>
-    <p class="rs-intro">Twenty years of marketing and brand design, mostly inside teams that had to grow fast. Right now I'm contracting and running Lo Studio, my boutique design studio, and I'm happy to keep doing that. I'm also open to a full-time role if it's the right fit. <a class="about-more" href="#" data-about-modal>Learn more about Michael.</a></p>
-    <div class="rs-actions">
-      <span class="bf-host" data-bf-scale="0.5"><a class="btn btn-primary" href="https://calendly.com/lostudioinc/30min" target="_blank" rel="noopener">Book a call <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg></a></span>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/debiase/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-    </div>
-    <div class="cube-stage" id="cubeStage" data-solve data-spin="0.06" aria-hidden="true">
-      <div class="cube-scene">
-        <div class="cube" id="rubik"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="rs-sec">
-    <h2>What I'm looking for</h2>
-    <div class="rs-grid">
-      <div class="rs-card"><h3>The role</h3><p>Senior, lead or principal design and video roles at a company on a mission. Marketing and brand design is my specialty, and I work closely with product design when teams need it. Contract engagements through Lo Studio work too.</p></div>
-      <div class="rs-card"><h3>Where</h3><p>Remote is my preference, and I'm open to hybrid or on site for the right opportunity. Ideally the San Francisco Bay Area or New York City.</p></div>
-      <div class="rs-card"><h3>What I bring</h3><p>Range plus speed. One designer covering what would otherwise take five specialists, with the quality kept high and the work shipped on schedule.</p></div>
+    <p class="rs-intro">Twenty years of marketing and brand design, mostly inside teams that had to grow fast. Right now I'm contracting and running my boutique design studio, and I'm happy to keep doing that. I'm also open to a full-time role if it's the right fit. <a class="about-more" href="#" data-about-modal>Learn more about Michael.</a></p>
     </div>
   </section>
 
   <section class="rs-sec">
     <h2>Experience</h2>
     <div class="exp">
-      <div class="exp-row"><div><div class="co">Lo Studio</div><div class="ro">Creative Director &amp; Lead Designer</div></div><div class="yr">Present</div></div>
-      <div class="exp-row"><div><div class="co">ProjectDiscovery</div><div class="ro">Principal Designer</div></div><div class="yr">2 years</div></div>
-      <div class="exp-row"><div><div class="co">LaunchDarkly</div><div class="ro">Senior Designer &amp; Video Editor</div></div><div class="yr">5 years</div></div>
-      <div class="exp-row"><div><div class="co">Auction.com / Ten-X</div><div class="ro">Creative Director</div></div><div class="yr">4 years</div></div>
-      <div class="exp-row"><div><div class="co">Netflix</div><div class="ro">Senior Marketing Design Manager</div></div><div class="yr">7 years</div></div>
-      <div class="exp-row"><div><div class="co">Playboy Enterprises</div><div class="ro">Multimedia Designer</div></div><div class="yr">4 years</div></div>
-      <div class="exp-row"><div><div class="co">Sony Music Studios</div><div class="ro">Intern &amp; Motion Graphic Designer</div></div><div class="yr">3 months</div></div>
+      <div class="exp-row"><div><div class="co">Lo Studio</div><div class="ro">Creative Director &amp; Lead Designer</div><p class="exp-note">Boutique studio for early-stage startups, Series A to C. Brand and go-to-market design for companies like ProjectDiscovery and LaunchDarkly: design systems, web, video and campaigns built for marketing teams that need to scale fast.</p></div><div class="yr">2004 &ndash; Present</div></div>
+      <div class="exp-row"><div><div class="co">ProjectDiscovery</div><div class="ro">Principal Designer</div><p class="exp-note">Led brand and go-to-market strategy for a Series B cybersecurity startup. Built the identity, a scalable Figma design system and the marketing infrastructure behind enterprise growth, plus the company's first conference and multi-channel campaigns across web, video and events.</p></div><div class="yr">2023 &ndash; 2025</div></div>
+      <div class="exp-row"><div><div class="co">LaunchDarkly</div><div class="ro">Senior Designer &amp; Video Editor</div><p class="exp-note">Scaled marketing and brand design for a feature management platform serving 20+ trillion flags a day. Built design systems for high-velocity campaigns across web, events and video, designing for DevOps and platform engineering audiences through Series D.</p></div><div class="yr">2018 &ndash; 2023</div></div>
+      <div class="exp-row"><div><div class="co">Auction.com / Ten-X</div><div class="ro">Creative Director</div><p class="exp-note">Led design strategy for the marketing organization and portfolio brands, including the full Ten-X rebrand, contributing to $50B+ in property sales. Built and directed creative teams, integrated campaigns across digital, print and TV, and auction platform UX.</p></div><div class="yr">2013 &ndash; 2017</div></div>
+      <div class="exp-row"><div><div class="co">Netflix</div><div class="ro">Senior Marketing Design Manager</div><p class="exp-note">Partnered with marketing through the shift from a 3M-member DVD service to a global streaming platform. High-velocity acquisition campaigns across ads, landing pages, email and direct mail, funnel optimization through A/B testing, and video production for TV.</p></div><div class="yr">2005 &ndash; 2012</div></div>
+      <div class="exp-row"><div><div class="co">Playboy Enterprises</div><div class="ro">Multimedia Designer</div><p class="exp-note">Digital and print campaigns for Playboy.com and Playboy Magazine: banner ads, email, landing pages and print advertising, plus motion graphics and video for marketing and executive communications.</p></div><div class="yr">2001 &ndash; 2005</div></div>
+      <div class="exp-row"><div><div class="co">Sony Music Entertainment</div><div class="ro">Motion Graphic Designer</div><p class="exp-note">Graphics and animation, with video pre- and post-production support at Viz Solutions.</p></div><div class="yr">1998</div></div>
     </div>
   </section>
 
   <section class="rs-sec">
     <h2>What I do</h2>
-    <div class="rs-chips">
-      <span>Brand identity</span><span>Marketing design</span><span>Web design</span><span>UI/UX</span><span>Motion graphics</span><span>Video production &amp; editing</span><span>Creative direction</span><span>Go-to-market</span><span>Event experiences</span><span>Design systems</span><span>AI-powered workflows</span><span>Vibe coding</span>
+    <div class="rs-dogrid"><div class="rs-do">Brand identity</div><div class="rs-do">Marketing design</div><div class="rs-do">Web design</div><div class="rs-do">UI/UX</div><div class="rs-do">Motion graphics</div><div class="rs-do">Video editing</div><div class="rs-do">Creative direction</div><div class="rs-do">Go-to-market</div><div class="rs-do">Event experiences</div><div class="rs-do">Design systems</div><div class="rs-do">AI-powered workflows</div><div class="rs-do">Vibe coding</div></div>
+  </section>
+
+  <section class="rs-sec">
+    <h2>Education</h2>
+    <div class="exp">
+      <div class="exp-row"><div><div class="co">School of Motion</div><div class="ro">Continuing education, Advanced Motion Methods</div></div><div class="yr">2023</div></div>
+      <div class="exp-row"><div><div class="co">Bay Area Video Coalition</div><div class="ro">Video Production Bootcamp</div></div><div class="yr">2022</div></div>
+      <div class="exp-row"><div><div class="co">Academy of Art University</div><div class="ro">BA, Web Design &amp; New Media</div></div><div class="yr">2011 &ndash; 2013</div></div>
+      <div class="exp-row"><div><div class="co">School of Visual Arts</div><div class="ro">Continuing education, Web Design &amp; New Media</div></div><div class="yr">2001 &ndash; 2005</div></div>
+      <div class="exp-row"><div><div class="co">Academy of Art University</div><div class="ro">AA, Digital &amp; Multimedia Design</div></div><div class="yr">1999 &ndash; 2001</div></div>
+      <div class="exp-row"><div><div class="co">SUNY Westchester Community College</div><div class="ro">Certificate, Digital Arts</div></div><div class="yr">1997 &ndash; 1999</div></div>
     </div>
   </section>
 
@@ -142,24 +156,31 @@ a:hover { opacity: .8; }
     <h2>Favorite tools</h2>
     <div class="rs-toolgroup">
       <h3>Design</h3>
-      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/claude.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Claude Design</span></div><div class="rs-tool"><img src="assets/logos/figma.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Figma</span></div><div class="rs-tool"><img src="assets/logos/photoshop.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Photoshop</span></div><div class="rs-tool"><img src="assets/logos/illustrator.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Illustrator</span></div><div class="rs-tool"><img src="assets/logos/indesign.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>InDesign</span></div></div>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/claude.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Claude Design</span></div><div class="rs-tool"><img src="assets/logos/figma.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Figma</span></div><div class="rs-tool"><img src="assets/logos/photoshop.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Photoshop</span></div><div class="rs-tool"><img src="assets/logos/illustrator.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Illustrator</span></div></div>
     </div>
     <div class="rs-toolgroup">
       <h3>Motion &amp; video</h3>
-      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/after-effects.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>After Effects</span></div><div class="rs-tool"><img src="assets/logos/premiere.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Premiere Pro</span></div><div class="rs-tool"><img src="assets/logos/lottie.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Lottie</span></div><div class="rs-tool"><img src="assets/logos/figma-weave.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Figma Weave</span></div><div class="rs-tool"><img src="assets/logos/heygen.png" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>HeyGen</span></div></div>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/after-effects.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>After Effects</span></div><div class="rs-tool"><img src="assets/logos/premiere.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Premiere Pro</span></div><div class="rs-tool"><img src="assets/logos/figma-weave.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Figma Weave</span></div><div class="rs-tool"><img src="assets/logos/heygen.png" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>HeyGen</span></div></div>
     </div>
     <div class="rs-toolgroup">
       <h3>Build</h3>
-      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/framer.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Framer</span></div><div class="rs-tool"><img src="assets/logos/webflow.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Webflow</span></div><div class="rs-tool"><img src="assets/logos/cursor.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Cursor</span></div><div class="rs-tool"><img src="assets/logos/github.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>GitHub</span></div><div class="rs-tool"><img src="assets/logos/vercel.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Vercel</span></div></div>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/framer.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Framer</span></div><div class="rs-tool"><img src="assets/logos/claude.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Claude Code</span></div><div class="rs-tool"><img src="assets/logos/github.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>GitHub</span></div><div class="rs-tool"><img src="assets/logos/vercel.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Vercel</span></div></div>
     </div>
     <div class="rs-toolgroup">
       <h3>AI</h3>
-      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/claude.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Claude</span></div><div class="rs-tool"><img src="assets/logos/chatgpt.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>ChatGPT</span></div><div class="rs-tool"><img src="assets/logos/gemini.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Gemini</span></div><div class="rs-tool"><img src="assets/logos/grok.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Grok</span></div><div class="rs-tool"><img src="assets/logos/elevenlabs.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>ElevenLabs</span></div></div>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/claude.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Claude Chat</span></div><div class="rs-tool"><img src="assets/logos/chatgpt.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>ChatGPT</span></div><div class="rs-tool"><img src="assets/logos/gemini.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Gemini</span></div><div class="rs-tool"><img src="assets/logos/elevenlabs.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>ElevenLabs</span></div></div>
     </div>
     <div class="rs-toolgroup">
       <h3>Ops</h3>
-      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/notion.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Notion</span></div><div class="rs-tool"><img src="assets/logos/linear.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Linear</span></div><div class="rs-tool"><img src="assets/logos/slack.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Slack</span></div><div class="rs-tool"><img src="assets/logos/atlassian.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Atlassian</span></div><div class="rs-tool"><img src="assets/logos/google.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>G Suite</span></div></div>
+      <div class="rs-tools"><div class="rs-tool"><img src="assets/logos/notion.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Notion</span></div><div class="rs-tool"><img src="assets/logos/linear.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Linear</span></div><div class="rs-tool"><img src="assets/logos/slack.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>Slack</span></div><div class="rs-tool"><img src="assets/logos/google.svg" alt="" width="26" height="26" loading="lazy" decoding="async" /><span>G Suite</span></div></div>
     </div>
+  </section>
+
+  <section class="rs-sec">
+    <a class="rs-linkedin" href="https://www.linkedin.com/in/debiase/" target="_blank" rel="noopener">
+      <span class="rs-li-copy"><span class="rs-li-t">The full résumé lives on LinkedIn</span><span class="rs-li-s">Certifications, education, recommendations and the long-form role details.</span></span>
+      <span class="rs-li-go"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
   </section>
 
   <div class="rs-foot">
@@ -170,7 +191,6 @@ a:hover { opacity: .8; }
 </div>
 </main>
 <script src="assets/app.js" defer></script>
-<script src="assets/cube.js" defer></script>
 <script src="assets/about-modal.js" defer></script>
 </body>
 </html>
